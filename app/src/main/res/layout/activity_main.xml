@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.joanna.housepharmacyproject.MainActivity"
+    android:orientation="vertical">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Szukaj" />
+
+
+    <Button
+        android:id="@+id/bSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Szukaj leku" />
+
+    <Button
+        android:id="@+id/bAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dodaj lek" />
+
+    <Button
+        android:id="@+id/bUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Uzupełnij informacje" />
+
+    <Button
+        android:id="@+id/bShow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pokaż wszystkie leki" />
+
+</LinearLayout>
