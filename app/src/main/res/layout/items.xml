@@ -10,20 +10,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="19dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="11dp"
-        android:layout_toEndOf="@+id/tvId"
+        android:layout_toEndOf="@+id/Name"
         android:text="Nazwa Leku"
-        android:textSize="20dp"
+        android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
     <TextView
         android:id="@+id/tvId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:text="ID"
-        android:textSize="20dp"
+        android:textSize="@dimen/tvDisplay"
         android:textStyle="bold"
         android:layout_alignBaseline="@+id/tvName"
         />
@@ -32,11 +32,10 @@
         android:id="@+id/tvDose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/tvName"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="20dp"
+        android:layout_alignStart="@+id/tvAmount"
+        android:layout_below="@+id/tvName"
         android:text="Dawka"
-        android:textSize="20dp"
+        android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
 
     <TextView
@@ -44,9 +43,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/tvName"
-        android:layout_below="@+id/tvName"
+        android:layout_below="@+id/Dose"
         android:text="Ilość"
-        android:textSize="20dp"
+        android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
 
     <TextView
@@ -54,18 +53,52 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/tvAmount"
-        android:layout_below="@+id/tvAmount"
+        android:layout_alignTop="@+id/Place"
         android:text="Miejsce"
-        android:textSize="20dp"
+        android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
 
-    <Button
+    <TextView
+        android:id="@+id/Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tvPlace"
-        android:layout_alignEnd="@+id/tvDose"
-        android:id="@+id/bUpdate"
-        android:text="AKTUALIZUJ"
-        android:textSize="20dp" />
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="11dp"
+        android:layout_toEndOf="@+id/tvId"
+        android:text="Nazwa leku"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/Dose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Name"
+        android:layout_below="@+id/Name"
+        android:text="Dawka"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/Amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Dose"
+        android:layout_below="@+id/Dose"
+        android:text="Ilość"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/Place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Amount"
+        android:layout_below="@+id/Amount"
+        android:text="Miejsce"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
 
 </RelativeLayout>

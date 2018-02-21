@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">HousePharmacyProject</string>
+    <string name="app_name">Domowa Apteczka</string>
+    <string name="instruction_add">Aby dodać lek podaj jego nazwę, a następnie naciśnij przycisk \"DODAJ LEK\".\n Jeżeli nie chcesz uzupełniać pozastałych pól, możesz uzupełnić informację później.\n Abo powrócić do menu głównego naciśnij przycisk \"WRÓĆ\"</string>
 </resources>

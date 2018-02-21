@@ -1,9 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="horizontal">
     tools:context="com.example.joanna.housepharmacyproject.UpdateActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/tvNameLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="Nazwa leku"
+            android:textSize="@dimen/tvUpdate"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDoseLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvNameLayout"
+            android:layout_below="@+id/tvNameLayout"
+            android:text="Dawka"
+            android:textSize="@dimen/tvUpdate"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvAmountLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvDoseLayout"
+            android:layout_below="@+id/tvDoseLayout"
+            android:text="Ilość"
+            android:textSize="@dimen/tvUpdate"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPlaceLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvAmountLayout"
+            android:layout_below="@+id/tvAmountLayout"
+            android:text="Miejsce"
+            android:textSize="@dimen/tvUpdate"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/tvCurrent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Obecnie"
+            android:textStyle="bold"
+            android:textSize="@dimen/tvDisplay"
+            />
+        />
+        <TextView
+
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11sp"
+            android:text="Nazwa Leku"
+            android:layout_below="@id/tvCurrent"
+            android:layout_alignStart="@id/tvCurrent"
+            android:textSize="@dimen/tvUpdate"
+             />
+
+        <TextView
+            android:id="@+id/tvDose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvAmount"
+            android:layout_below="@+id/tvName"
+            android:text="Dawka"
+            android:textSize="@dimen/tvUpdate"
+            />
+
+        <TextView
+            android:id="@+id/tvAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvName"
+            android:layout_below="@+id/tvDose"
+            android:text="Ilość"
+            android:textSize="@dimen/tvUpdate"
+             />
+
+        <TextView
+            android:id="@+id/tvPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvAmount"
+            android:layout_below="@id/tvAmount"
+            android:text="Miejsce"
+            android:textSize="@dimen/tvUpdate"
+             />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center">
+        <TextView
+        android:id="@+id/tvChange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Zmień"
+        android:textSize="@dimen/tvDisplay" />
+
+
+    </RelativeLayout>
+</LinearLayout>
+

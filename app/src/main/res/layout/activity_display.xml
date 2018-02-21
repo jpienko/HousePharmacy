@@ -17,7 +17,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp"
         android:text="Wróć"
-        android:id="@+id/bBack"/>
+        android:id="@+id/bBackDisp"/>
 <Toolbar
     android:layout_width="wrap_content"
     android:layout_height="match_parent"

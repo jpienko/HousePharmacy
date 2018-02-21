@@ -26,7 +26,7 @@ public class DisplayActivity extends AppCompatActivity {
     MedAdapter medAdapter;
     ArrayList<Meds> meds = new ArrayList<>();
 
-    @OnClick(R.id.bBack)
+    @OnClick(R.id.bBackDisp)
     void click1() {
         Intent in = new Intent(this, MainActivity.class);
         startActivity(in);

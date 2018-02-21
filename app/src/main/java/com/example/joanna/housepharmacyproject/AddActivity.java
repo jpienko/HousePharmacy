@@ -1,5 +1,6 @@
 package com.example.joanna.housepharmacyproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -26,7 +27,11 @@ public class AddActivity extends AppCompatActivity {
 
     @BindView(R.id.etPlace)
     EditText place;
-
+    @OnClick(R.id.bBackAdd)
+    void click1() {
+        Intent in = new Intent(this, MainActivity.class);
+        startActivity(in);
+    }
     @OnClick(R.id.bAddMed)
     void Click(){
         dA = new DatabaseAdapter(this);
