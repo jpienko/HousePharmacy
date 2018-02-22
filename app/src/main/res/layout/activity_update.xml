@@ -90,7 +90,7 @@
 
         <TextView
 
-            android:id="@+id/tvName"
+            android:id="@+id/tvNameUpdate"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
@@ -99,7 +99,7 @@
             android:textSize="@dimen/tvUpdate" />
 
         <TextView
-            android:id="@+id/tvDose"
+            android:id="@+id/tvDoseUpdate"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:gravity="center"
@@ -108,7 +108,7 @@
             android:textSize="@dimen/tvUpdate" />
 
         <TextView
-            android:id="@+id/tvAmount"
+            android:id="@+id/tvAmountUpdate"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:gravity="center"
@@ -117,7 +117,7 @@
             android:textSize="@dimen/tvUpdate" />
 
         <TextView
-            android:id="@+id/tvPlace"
+            android:id="@+id/tvPlaceUpdate"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginTop="8dp"
@@ -145,7 +145,7 @@
             android:textStyle="bold"/>
 
         <EditText
-            android:id="@+id/etName"
+            android:id="@+id/etNameUpdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -156,7 +156,7 @@
             android:textSize="@dimen/tvUpdate"/>
 
         <EditText
-            android:id="@+id/etDose"
+            android:id="@+id/etDoseUpdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -165,7 +165,7 @@
             android:layout_marginRight="20dp"
             android:textSize="@dimen/tvUpdate"/>
         <EditText
-            android:id="@+id/etAmount"
+            android:id="@+id/etAmountUpdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -175,7 +175,7 @@
             android:textSize="@dimen/tvUpdate" />
 
         <EditText
-            android:id="@+id/etPlace"
+            android:id="@+id/etPlaceUpdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

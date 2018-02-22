@@ -84,5 +84,14 @@ public class DatabaseAdapter{
 
     }
 
+    public long UpdateRow(String id, String name,int amount, double dose, String place){
+        ContentValues rowUpdate=new ContentValues();
+        rowUpdate.put(DBConstants.NAME, name);
+        rowUpdate.put(DBConstants.AMOUNT, amount);
+        rowUpdate.put(DBConstants.DOSE, dose);
+        rowUpdate.put(DBConstants.PLACE, place);
+        return db.update(DBConstants.table1Name, rowUpdate, "Id=" + id, null);
+    }
+
 
 }
