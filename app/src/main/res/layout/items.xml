@@ -20,7 +20,7 @@
         android:id="@+id/tvId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:text="ID"
         android:textSize="@dimen/tvDisplay"
@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="11dp"
         android:layout_toEndOf="@+id/tvId"
         android:text="Nazwa leku"
@@ -100,5 +100,14 @@
         android:text="Miejsce"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvPlace"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp"
+        android:text="AKTUALIZUJ"
+        android:id="@+id/bGoToUpdate"/>
 
 </RelativeLayout>

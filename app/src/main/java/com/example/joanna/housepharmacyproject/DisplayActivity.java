@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Toolbar;
 
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class DisplayActivity extends AppCompatActivity {
 
     MedAdapter medAdapter;
     ArrayList<Meds> meds = new ArrayList<>();
-
+    RecyclerViewClickListener recyclerViewClickListener;
     @OnClick(R.id.bBackDisp)
     void click1() {
         Intent in = new Intent(this, MainActivity.class);
@@ -39,10 +40,9 @@ public class DisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display);
         ButterKnife.bind(this);
         recView.setLayoutManager(new LinearLayoutManager(this));
-
         recView.setItemAnimator(new DefaultItemAnimator());
-
-        medAdapter = new MedAdapter(this, meds);
+        goToUpdate();
+        medAdapter = new MedAdapter(meds, recyclerViewClickListener);
         retrieve();
 
     }
@@ -79,6 +79,20 @@ public class DisplayActivity extends AppCompatActivity {
 
     }
 
+    public void goToUpdate() {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recView.setLayoutManager(layoutManager);
+        RecyclerViewClickListener listener = new RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position, String id) {
+                Intent intent = new Intent(DisplayActivity.this, UpdateActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("Id", id);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        };
+    }
 
 
 }

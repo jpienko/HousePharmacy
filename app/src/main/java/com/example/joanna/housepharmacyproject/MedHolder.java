@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -15,27 +17,38 @@ import butterknife.OnClick;
 
 public class MedHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-    TextView tvName,tvId,tvDose,tvAmount,tvPlace;
-    RecyclerViewClickListener recyclerViewClickListener;
-    public MedHolder(View itemView) {
-        super(itemView);
+    RecyclerViewClickListener listener;
+    @BindView(R.id.bGoToUpdate)
+    Button goToUpdate;
 
-        tvId = (TextView) itemView.findViewById(R.id.tvId);
-        tvName = (TextView) itemView.findViewById(R.id.tvName);
-        tvDose = (TextView) itemView.findViewById(R.id.tvDose);
-        tvAmount = (TextView) itemView.findViewById(R.id.tvAmount);
-        tvPlace = (TextView) itemView.findViewById(R.id.tvPlace);
-        itemView.setOnClickListener(this);
+    @BindView(R.id.tvId)
+    TextView tvId;
+
+    @BindView(R.id.tvName)
+    TextView tvName;
+
+    @BindView(R.id.tvDose)
+    TextView tvDose;
+
+    @BindView(R.id.tvAmount)
+    TextView tvAmount;
+
+    @BindView(R.id.tvPlace)
+    TextView tvPlace;
+
+    MedHolder(View itemView,RecyclerViewClickListener listener) {
+        super(itemView);
+        ButterKnife.bind(this, itemView);
+        this.listener = listener;
+        goToUpdate.setOnClickListener(this);
     }
 
 
     @Override
     public void onClick(View view) {
-        this.recyclerViewClickListener.onClick(view,getLayoutPosition());
+
+        listener.onClick(view,getAdapterPosition(),String.valueOf(tvId.getId()));
 
     }
 
-    public void setRecyclerViewClickListener(RecyclerViewClickListener rvcl){
-        this.recyclerViewClickListener = rvcl;
-    }
 }

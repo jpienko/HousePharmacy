@@ -5,38 +5,28 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-
-import butterknife.BindView;
 
 /**
  * Created by Joanna on 2018-02-16.
  */
 
-public class DatabaseAdapter{
-        Context context;
+public class DatabaseAdapter {
+    Context context;
 
-        SQLiteDatabase db;
-        DatabaseHelper dbHelper;
+    SQLiteDatabase db;
+    DatabaseHelper dbHelper;
+
     public DatabaseAdapter(Context context) {
         this.context = context;
         dbHelper = new DatabaseHelper(context);
     }
-    //OPEN DATABASE
-    public DatabaseAdapter openDB()
-    {
-        try {
-            db=dbHelper.getWritableDatabase();
 
-        }catch (SQLException e)
-        {
+    //OPEN DATABASE
+    public DatabaseAdapter openDB() {
+        try {
+            db = dbHelper.getWritableDatabase();
+
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
@@ -44,13 +34,11 @@ public class DatabaseAdapter{
     }
 
     //CLOSE DATABASE
-    public void CloseDB()
-    {
+    public void CloseDB() {
         try {
             dbHelper.close();
 
-        }catch (SQLException e)
-        {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
@@ -58,17 +46,15 @@ public class DatabaseAdapter{
 
     //INSERT
     public long addData(String name, int amount, double dose, String place) {
-        try
-        {
-        ContentValues cv = new ContentValues();
-        cv.put(DBConstants.NAME, name);
-        cv.put(DBConstants.AMOUNT, amount);
-        cv.put(DBConstants.DOSE, dose);
-        cv.put(DBConstants.PLACE, place);
-        return db.insert(DBConstants.table1Name,null,cv);
+        try {
+            ContentValues cv = new ContentValues();
+            cv.put(DBConstants.NAME, name);
+            cv.put(DBConstants.AMOUNT, amount);
+            cv.put(DBConstants.DOSE, dose);
+            cv.put(DBConstants.PLACE, place);
+            return db.insert(DBConstants.table1Name, null, cv);
 
-        }catch (SQLException e)
-        {
+        } catch (SQLException e) {
             e.printStackTrace();
 
         }
@@ -76,16 +62,15 @@ public class DatabaseAdapter{
     }
 
     //RETRIEVE
-    public Cursor GetAllMeds()
-    {
-        String[] columns={DBConstants.ID,DBConstants.NAME,DBConstants.DOSE,DBConstants.AMOUNT,DBConstants.PLACE};
+    public Cursor GetAllMeds() {
+        String[] columns = {DBConstants.ID, DBConstants.NAME, DBConstants.DOSE, DBConstants.AMOUNT, DBConstants.PLACE};
 
-        return db.query(DBConstants.table1Name,columns,null,null,null,null,null);
+        return db.query(DBConstants.table1Name, columns, null, null, null, null, null);
 
     }
 
-    public long UpdateRow(String id, String name,int amount, double dose, String place){
-        ContentValues rowUpdate=new ContentValues();
+    public long UpdateRow(String id, String name, int amount, double dose, String place) {
+        ContentValues rowUpdate = new ContentValues();
         rowUpdate.put(DBConstants.NAME, name);
         rowUpdate.put(DBConstants.AMOUNT, amount);
         rowUpdate.put(DBConstants.DOSE, dose);
@@ -93,5 +78,17 @@ public class DatabaseAdapter{
         return db.update(DBConstants.table1Name, rowUpdate, "Id=" + id, null);
     }
 
+    public String GetColumnContent(String columnName, String id) {
+        String columnContent = "";
+        Cursor cursor = null;
+
+        cursor = db.rawQuery("SELECT " + columnName + " FROM " + DBConstants.DBName + " WHERE " + DBConstants.ID + " = " + id, new String[]{columnContent + ""});
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            columnContent = cursor.getString(cursor.getColumnIndex("EmployeeName"));
+        }
+        return columnContent;
+
+    }
 
 }
