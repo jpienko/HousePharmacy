@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.Toolbar;
 
 import java.util.ArrayList;
@@ -26,7 +25,8 @@ public class DisplayActivity extends AppCompatActivity {
 
     MedAdapter medAdapter;
     ArrayList<Meds> meds = new ArrayList<>();
-    RecyclerViewClickListener recyclerViewClickListener;
+
+
     @OnClick(R.id.bBackDisp)
     void click1() {
         Intent in = new Intent(this, MainActivity.class);
@@ -39,12 +39,11 @@ public class DisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
         ButterKnife.bind(this);
+        retrieve();
         recView.setLayoutManager(new LinearLayoutManager(this));
         recView.setItemAnimator(new DefaultItemAnimator());
-        goToUpdate();
-        medAdapter = new MedAdapter(meds, recyclerViewClickListener);
-        retrieve();
 
+        goToUpdate();
     }
 
     private void retrieve() {
@@ -53,45 +52,36 @@ public class DisplayActivity extends AppCompatActivity {
         DatabaseAdapter db = new DatabaseAdapter(this);
         db.openDB();
 
-        //RETRIEVE
-        Cursor c = db.GetAllMeds();
-
-        //LOOP AND ADD TO ARRAYLIST
+        Cursor c = db.getAllMeds();
         while (c.moveToNext()) {
             int id = c.getInt(0);
             String name = c.getString(1);
             int amount = c.getInt(2);
             Double dose = c.getDouble(3);
             String place = c.getString(4);
-
             Meds p = new Meds(id, name, dose, amount, place);
-
-            //ADD TO ARRAYLIS
             meds.add(p);
         }
-
-        //CHECK IF ARRAYLIST ISNT EMPTY
         if (!(meds.size() < 1)) {
             recView.setAdapter(medAdapter);
         }
-
-        db.CloseDB();
+        db.closeDB();
 
     }
 
     public void goToUpdate() {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recView.setLayoutManager(layoutManager);
-        RecyclerViewClickListener listener = new RecyclerViewClickListener() {
-            @Override
-            public void onClick(View view, int position, String id) {
-                Intent intent = new Intent(DisplayActivity.this, UpdateActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("Id", id);
-                intent.putExtras(bundle);
-                startActivity(intent);
-            }
+
+        RecyclerViewClickListener listener = (view, position, id) -> {
+            Intent intent = new Intent(DisplayActivity.this, UpdateActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("Id", id);
+            intent.putExtras(bundle);
+            startActivity(intent);
         };
+        medAdapter = new MedAdapter(meds, listener);
+        recView.setAdapter(medAdapter);
     }
 
 

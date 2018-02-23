@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+
 /**
  * Created by Joanna on 2018-02-16.
  */
@@ -34,7 +36,7 @@ public class DatabaseAdapter {
     }
 
     //CLOSE DATABASE
-    public void CloseDB() {
+    public void closeDB() {
         try {
             dbHelper.close();
 
@@ -62,33 +64,33 @@ public class DatabaseAdapter {
     }
 
     //RETRIEVE
-    public Cursor GetAllMeds() {
+    public Cursor getAllMeds() {
         String[] columns = {DBConstants.ID, DBConstants.NAME, DBConstants.DOSE, DBConstants.AMOUNT, DBConstants.PLACE};
 
         return db.query(DBConstants.table1Name, columns, null, null, null, null, null);
 
     }
 
-    public long UpdateRow(String id, String name, int amount, double dose, String place) {
+    public long updateRow(int id, String name, int amount, double dose, String place) {
         ContentValues rowUpdate = new ContentValues();
         rowUpdate.put(DBConstants.NAME, name);
         rowUpdate.put(DBConstants.AMOUNT, amount);
         rowUpdate.put(DBConstants.DOSE, dose);
         rowUpdate.put(DBConstants.PLACE, place);
-        return db.update(DBConstants.table1Name, rowUpdate, "Id=" + id, null);
+        return db.update(DBConstants.table1Name, rowUpdate, "Id=" + String.valueOf(id), null);
     }
 
-    public String GetColumnContent(String columnName, String id) {
+    public String getColumnContent(String columnName, long id) {
         String columnContent = "";
-        Cursor cursor = null;
+        Cursor cursor;
 
-        cursor = db.rawQuery("SELECT " + columnName + " FROM " + DBConstants.DBName + " WHERE " + DBConstants.ID + " = " + id, new String[]{columnContent + ""});
+        cursor = db.rawQuery("SELECT " + columnName + " FROM " + DBConstants.table1Name + " WHERE " + DBConstants.ID + " = ?", new String[]{String.valueOf(id)});
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
-            columnContent = cursor.getString(cursor.getColumnIndex("EmployeeName"));
+            columnContent = cursor.getString(cursor.getColumnIndex(columnName));
         }
         return columnContent;
 
     }
-
+    
 }

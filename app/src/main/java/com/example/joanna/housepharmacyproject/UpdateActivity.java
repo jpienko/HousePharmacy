@@ -1,5 +1,6 @@
 package com.example.joanna.housepharmacyproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
@@ -43,21 +44,21 @@ public class UpdateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
         ButterKnife.bind(this);
-        SetTextView();
+        setTextView();
     }
 
     @OnClick(R.id.bUpdateMed)
     void Click() {
         dA = new DatabaseAdapter(this);
         dA.openDB();
-        String name = GetNewRowData(nameCurrent, nameUpdate);
-        String dose = GetNewRowData(doseCurrent, doseUpdate);
-        String amount = GetNewRowData(amountCurrent, amountUpdate);
-        String place = GetNewRowData(placeCurrent, placeUpdate);
-        String id = getID();
+        String name = getNewRowData(nameCurrent, nameUpdate);
+        String dose = getNewRowData(doseCurrent, doseUpdate);
+        String amount = getNewRowData(amountCurrent, amountUpdate);
+        String place = getNewRowData(placeCurrent, placeUpdate);
+        int id = getID();
         long didItWork;
-        if (id != null) {
-            didItWork = dA.UpdateRow(id, name,
+        if (id != 0) {
+            didItWork = dA.updateRow(id, name,
                     Integer.parseInt(amount),
                     Double.parseDouble(dose.replaceAll(",", ".")),
                     place);
@@ -70,20 +71,26 @@ public class UpdateActivity extends AppCompatActivity {
             Toast.makeText(UpdateActivity.this, "Fail", Toast.LENGTH_LONG).show();
         }
         ClearEditText();
-        dA.CloseDB();
+        dA.closeDB();
+        setTextView();
 
     }
 
-    private String getID() {
+    @OnClick(R.id.bBackUpdate)
+    void ClickBackUpdate() {
+        Intent in = new Intent(this, MainActivity.class);
+        startActivity(in);
+    }
+    private int getID() {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            return bundle.getString("Id");
+            return bundle.getInt("Id");
         } else {
-            return null;
+            return 0;
         }
     }
 
-    public String GetNewRowData(TextView contentCurrent, EditText contentUpdate) {
+    public String getNewRowData(TextView contentCurrent, EditText contentUpdate) {
         String newContent;
         if (contentUpdate.getText().toString().equals("")) {
             return newContent = contentCurrent.getText().toString();
@@ -100,13 +107,15 @@ public class UpdateActivity extends AppCompatActivity {
 
     }
 
-    public void SetTextView() {
+    public void setTextView() {
         dA = new DatabaseAdapter(this);
-        String id = getID();
-        nameCurrent.setText(dA.GetColumnContent(DBConstants.NAME, id));
-        placeCurrent.setText(dA.GetColumnContent(DBConstants.PLACE, id));
-        amountCurrent.setText(dA.GetColumnContent(DBConstants.AMOUNT, id));
-        doseCurrent.setText(dA.GetColumnContent(DBConstants.DOSE, id));
+        int id = getID();
+        dA.openDB();
+        nameCurrent.setText(dA.getColumnContent(DBConstants.NAME, id));
+        placeCurrent.setText(dA.getColumnContent(DBConstants.PLACE, id));
+        amountCurrent.setText(dA.getColumnContent(DBConstants.AMOUNT, id));
+        doseCurrent.setText(dA.getColumnContent(DBConstants.DOSE, id));
+        dA.closeDB();
 
     }
 }

@@ -33,7 +33,7 @@ public class Meds {
         this.place = place;
     }
 
-    public Integer getAmount() {
+    public int getAmount() {
         return amount;
     }
 
@@ -49,7 +49,7 @@ public class Meds {
         this.id = id;
     }
 
-    private Integer amount;
+    private int amount;
     private int id;
 
     public Meds(int id, String name, Double dose, Integer amount, String place) {
