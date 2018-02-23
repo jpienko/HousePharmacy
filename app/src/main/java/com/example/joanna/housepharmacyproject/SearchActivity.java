@@ -33,6 +33,11 @@ public class SearchActivity extends AppCompatActivity {
         showData();
     }
 
+    @OnClick(R.id.bBackSearch)
+    void ClickBackSearch() {
+        Intent in = new Intent(this, MainActivity.class);
+        startActivity(in);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

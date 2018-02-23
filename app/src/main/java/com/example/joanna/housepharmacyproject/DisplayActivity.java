@@ -17,8 +17,6 @@ import butterknife.OnClick;
 
 public class DisplayActivity extends AppCompatActivity {
 
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
 
     @BindView(R.id.recView)
     RecyclerView recView;

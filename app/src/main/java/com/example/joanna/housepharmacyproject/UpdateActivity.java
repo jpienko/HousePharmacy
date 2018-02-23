@@ -81,6 +81,7 @@ public class UpdateActivity extends AppCompatActivity {
         Intent in = new Intent(this, MainActivity.class);
         startActivity(in);
     }
+
     private int getID() {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
