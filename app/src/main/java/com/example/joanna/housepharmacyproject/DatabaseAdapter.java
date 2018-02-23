@@ -92,5 +92,10 @@ public class DatabaseAdapter {
         return columnContent;
 
     }
-    
+
+    public Cursor searchDB(String name){
+        String[] columns = {DBConstants.ID, DBConstants.NAME, DBConstants.DOSE, DBConstants.AMOUNT, DBConstants.PLACE};
+
+        return db.query(DBConstants.table1Name, columns, DBConstants.NAME +"=?", new String[]{name}, null, null, DBConstants.ID);
+    }
 }

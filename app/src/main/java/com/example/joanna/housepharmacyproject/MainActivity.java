@@ -24,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(in);
     }
 
+    @OnClick(R.id.bSearch)
+    void onClickSearch(View view) {
+        Intent in = new Intent(MainActivity.this, SearchActivity.class);
+        startActivity(in);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
