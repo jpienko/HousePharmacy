@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import java.util.ArrayList;
+import butterknife.internal.Utils;
 
 /**
  * Created by Joanna on 2018-02-16.
@@ -47,14 +47,14 @@ public class DatabaseAdapter {
     }
 
     //INSERT
-    public long addData(String name, int amount, double dose, String place) {
+    public long addData(String name, int amount, double dose, int place) {
         try {
             ContentValues cv = new ContentValues();
             cv.put(DBConstants.NAME, name);
             cv.put(DBConstants.AMOUNT, amount);
             cv.put(DBConstants.DOSE, dose);
             cv.put(DBConstants.PLACE, place);
-            return db.insert(DBConstants.table1Name, null, cv);
+            return db.insert(DBConstants.MEDSTABLE, null, cv);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -65,9 +65,12 @@ public class DatabaseAdapter {
 
     //RETRIEVE
     public Cursor getAllMeds() {
-        String[] columns = {DBConstants.ID, DBConstants.NAME, DBConstants.DOSE, DBConstants.AMOUNT, DBConstants.PLACE};
+        final String MY_QUERY = "SELECT med." +DBConstants.ID+", med."+DBConstants.NAME+", med."+DBConstants.AMOUNT+", med."+DBConstants.DOSE+", pl."+DBConstants.PLACE_NAME+
+                                " FROM "+DBConstants.MEDSTABLE+" med " +
+                                "INNER JOIN "+DBConstants.PLACESTABLE +" pl ON med."+DBConstants.PLACE+"=pl."+ DBConstants.ID_PLACE;
 
-        return db.query(DBConstants.table1Name, columns, null, null, null, null, null);
+
+        return db.rawQuery(MY_QUERY, null);
 
     }
 
@@ -77,14 +80,14 @@ public class DatabaseAdapter {
         rowUpdate.put(DBConstants.AMOUNT, amount);
         rowUpdate.put(DBConstants.DOSE, dose);
         rowUpdate.put(DBConstants.PLACE, place);
-        return db.update(DBConstants.table1Name, rowUpdate, "Id=" + String.valueOf(id), null);
+        return db.update(DBConstants.MEDSTABLE, rowUpdate, "Id=" + String.valueOf(id), null);
     }
 
     public String getColumnContent(String columnName, long id) {
         String columnContent = "";
         Cursor cursor;
 
-        cursor = db.rawQuery("SELECT " + columnName + " FROM " + DBConstants.table1Name + " WHERE " + DBConstants.ID + " = ?", new String[]{String.valueOf(id)});
+        cursor = db.rawQuery("SELECT " + columnName + " FROM " + DBConstants.MEDSTABLE + " WHERE " + DBConstants.ID + " = ?", new String[]{String.valueOf(id)});
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             columnContent = cursor.getString(cursor.getColumnIndex(columnName));
@@ -96,6 +99,23 @@ public class DatabaseAdapter {
     public Cursor searchDB(String name){
         String[] columns = {DBConstants.ID, DBConstants.NAME, DBConstants.DOSE, DBConstants.AMOUNT, DBConstants.PLACE};
 
-        return db.query(DBConstants.table1Name, columns, DBConstants.NAME +"=?", new String[]{name}, null, null, DBConstants.ID);
+        return db.query(DBConstants.MEDSTABLE, columns, DBConstants.NAME +"=?", new String[]{name}, null, null, DBConstants.ID);
+    }
+
+    public int getPlaceId(String placeName){
+        int id = 0;
+
+        final String MY_QUERY = "SELECT pl." +DBConstants.ID_PLACE+
+                " FROM "+DBConstants.PLACESTABLE +
+                " WHERE pl." +DBConstants.PLACE_NAME+" = ?";
+
+        Cursor cursor = db.rawQuery(MY_QUERY, new String[]{placeName});
+
+       if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            id = cursor.getInt(cursor.getColumnIndex(DBConstants.ID_PLACE));
+        }
+
+        return id;
     }
 }

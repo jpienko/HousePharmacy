@@ -47,7 +47,7 @@ public class AddActivity extends AppCompatActivity {
         long didItWork = dA.addData(name.getText().toString(),
                 Integer.parseInt(amount.getText().toString()),
                 Double.parseDouble(dose.getText().toString().replaceAll(",",".")),
-                place.getText().toString());
+                dA.getPlaceId(place.getText().toString()));
         if (didItWork>0) {
             Toast.makeText(AddActivity.this, "Succsess", Toast.LENGTH_LONG).show();
         } else {

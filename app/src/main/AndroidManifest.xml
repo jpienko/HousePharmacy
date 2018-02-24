@@ -21,7 +21,8 @@
         <activity android:name=".AddActivity" />
         <activity android:name=".DisplayActivity" />
         <activity android:name=".UpdateActivity" />
-        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".PlaceAddActivity"></activity>
     </application>
 
 </manifest>
