@@ -3,56 +3,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/pills"
     android:orientation="vertical"
+
     tools:context="com.example.joanna.housepharmacyproject.AddActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/instruction_add"
-        android:textSize="@dimen/tvAdd"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        />
-
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:background="@color/backMist"
         android:gravity="center"
-        android:hint="Nazwa"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:text="@string/instruction_add"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvAdd" />
 
-    <EditText
-        android:id="@+id/etAmount"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="Ilość"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/backMist"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/etDose"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="Dawka"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:hint="Nazwa"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
 
-    <EditText
-        android:id="@+id/etPlace"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="Miejsce"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+            />
+
+        <EditText
+            android:id="@+id/etAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:hint="Ilość"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <EditText
+            android:id="@+id/etDose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textStyle="bold"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:hint="Dawka"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <EditText
+            android:id="@+id/etPlace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:hint="Miejsce"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            />
+
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/bAddMed"
@@ -61,7 +89,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="40dp"
-        android:text="Dodaj lek" />
+        android:background="@color/colorPrimary"
+        android:text="Dodaj lek"
+        android:textColor="@android:color/white" />/>
 
     <Button
         android:id="@+id/bBackAdd"
@@ -72,5 +102,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="30dp"
-        android:text="Wróć" />
+        android:background="@color/colorPrimary"
+        android:text="Wróć"
+        android:textColor="@android:color/white" />/>
 </LinearLayout>

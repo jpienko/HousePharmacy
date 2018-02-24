@@ -16,7 +16,9 @@
         android:layout_gravity="center"
         android:layout_weight="0.9"
         android:background="@color/backMist"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_above="@id/bUpdateMed"
+        android:layout_marginBottom="20dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -88,7 +90,9 @@
         android:layout_toRightOf="@id/layout1"
         android:layout_weight="1"
         android:background="@color/backMist"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_above="@id/bUpdateMed"
+        android:layout_marginBottom="20dp">
 
 
         <TextView
@@ -110,6 +114,7 @@
             android:layout_marginTop="5dp"
             android:gravity="bottom"
             android:text="Nazwa Leku"
+            android:textStyle="bold"
             android:textSize="@dimen/tvUpdate"
             android:textColor="@color/colorPrimaryDark"
             />
@@ -121,6 +126,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="Dawka"
+            android:textStyle="bold"
             android:textSize="@dimen/tvUpdate"
             android:textColor="@color/colorPrimaryDark"
             />
@@ -132,6 +138,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="Ilość"
+            android:textStyle="bold"
             android:textSize="@dimen/tvUpdate"
             android:textColor="@color/colorPrimaryDark"
             />
@@ -143,6 +150,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="Miejsce"
+            android:textStyle="bold"
             android:textSize="@dimen/tvUpdate"
             android:textColor="@color/colorPrimaryDark"
             />
@@ -150,16 +158,20 @@
 
     <LinearLayout
         android:id="@+id/layout3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@id/tvInfo"
         android:layout_gravity="center"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="3dp"
         android:layout_marginRight="5dp"
+        android:layout_toEndOf="@id/layout2"
         android:layout_weight="1"
         android:background="@color/backMist"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_above="@id/bUpdateMed"
+        android:layout_marginBottom="20dp"
+        >
 
         <TextView
             android:id="@+id/tvChange"
@@ -180,6 +192,7 @@
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:hint="Nazwa"
+            android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/tvUpdate" />
 
@@ -191,6 +204,7 @@
             android:layout_marginRight="20dp"
             android:gravity="center"
             android:hint="Dawka"
+            android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/tvUpdate" />
 
@@ -202,6 +216,7 @@
             android:layout_marginRight="20dp"
             android:gravity="center"
             android:hint="Ilość"
+            android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/tvUpdate" />
 
@@ -213,6 +228,7 @@
             android:layout_marginRight="20dp"
             android:gravity="center"
             android:hint="Miejsce"
+            android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/tvUpdate" />
     </LinearLayout>
@@ -222,7 +238,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:background="@color/backMist"
         android:gravity="center"
         android:text="@string/instruction_update"
@@ -237,6 +253,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="Aktualizuj lek"
+
         android:textColor="@android:color/white"
         android:background="@color/colorPrimary"/>
 
