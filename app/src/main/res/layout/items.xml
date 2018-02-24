@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backMist"
+    tools:context="com.example.joanna.housepharmacyproject.MainActivity">
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="11dp"
+        android:layout_toEndOf="@+id/Name"
+        android:text="Nazwa Leku"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        />
+    <TextView
+        android:id="@+id/tvId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="ID"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold"
+        android:layout_alignBaseline="@+id/tvName"
+        android:textColor="@color/colorPrimaryDark"
+
+        />
+
+    <TextView
+        android:id="@+id/tvDose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvAmount"
+        android:layout_below="@+id/tvName"
+        android:text="Dawka"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        />
+
+    <TextView
+        android:id="@+id/tvAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvName"
+        android:layout_below="@+id/Dose"
+        android:text="Ilość"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        />
+
+    <TextView
+        android:id="@+id/tvPlace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvAmount"
+        android:layout_alignTop="@+id/Place"
+        android:text="Miejsce"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        />
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="11dp"
+        android:layout_toEndOf="@+id/tvId"
+        android:text="Nazwa leku"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        />
+
+
+    <TextView
+        android:id="@+id/Dose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Name"
+        android:layout_below="@+id/Name"
+        android:text="Dawka"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        />
+
+    <TextView
+        android:id="@+id/Amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Dose"
+        android:layout_below="@+id/Dose"
+        android:text="Ilość"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        />
+
+    <TextView
+        android:id="@+id/Place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Amount"
+        android:layout_below="@+id/Amount"
+        android:text="Miejsce"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvPlace"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp"
+        android:text="AKTUALIZUJ"
+        android:id="@+id/bGoToUpdate"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimary"/>/>
+
+</RelativeLayout>
