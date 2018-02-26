@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Domowa Apteczka</string>
-    <string name="instruction_add">Aby dodać lek podaj jego nazwę, a następnie naciśnij przycisk \"DODAJ LEK\".\n Jeżeli nie chcesz uzupełniać pozastałych pól, możesz uzupełnić informację później.\n Abo powrócić do menu głównego naciśnij przycisk \"WRÓĆ\"</string>
+    <string name="instruction_add">Aby dodać lek podaj jego nazwę, a następnie naciśnij przycisk \"DODAJ LEK\".\n Jeżeli nie chcesz uzupełniać pozastałych pól, możesz uzupełnić informację później.\n Aby powrócić do menu głównego naciśnij przycisk \"WRÓĆ\"</string>
+    <string name="instruction_add_place">Aby dodać miejsce podaj jego nazwę, a następnie naciśnij przycisk \"DODAJ MIEJSCE\".\n Jeżeli nie chcesz uzupełniać pola opis, możesz uzupełnić je później.\n Aby powrócić do menu głównego naciśnij przycisk \"WRÓĆ\"</string>
     <string name="instruction_update">Aby zaktualizować lek uzupełnij pola, odpowiadające informacji, którą chcesz zmienić, a następnie naciśnij przycisk \"ZAKTUALIZUJ LEK\". \n By wrócić do menu głównego bez dokonywania zmian naciśnij przycisk \"WRÓĆ\"</string>
+    <string name="instruction_update_place">Aby zaktualizować miejsce uzupełnij pola, odpowiadające informacji, którą chcesz zmienić, a następnie naciśnij przycisk \"ZAKTUALIZUJ MIEJSCE\". \n By wrócić do menu głównego bez dokonywania zmian naciśnij przycisk \"WRÓĆ\"</string>
+
 </resources>

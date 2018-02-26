@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backMist"
-    tools:context="com.example.joanna.housepharmacyproject.MainActivity">
+    tools:context="com.example.joanna.housepharmacyproject.DisplayMedActivity">
 
     <TextView
         android:id="@+id/tvName"

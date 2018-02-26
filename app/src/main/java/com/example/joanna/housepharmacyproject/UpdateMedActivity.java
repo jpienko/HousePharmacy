@@ -11,7 +11,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class UpdateActivity extends AppCompatActivity {
+public class UpdateMedActivity extends AppCompatActivity {
     DatabaseAdapter dA;
 
     @BindView(R.id.tvAmountUpdate)
@@ -66,9 +66,9 @@ public class UpdateActivity extends AppCompatActivity {
             didItWork = 0;
         }
         if (didItWork > 0) {
-            Toast.makeText(UpdateActivity.this, "Succsess", Toast.LENGTH_LONG).show();
+            Toast.makeText(UpdateMedActivity.this, "Succsess", Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(UpdateActivity.this, "Fail", Toast.LENGTH_LONG).show();
+            Toast.makeText(UpdateMedActivity.this, "Fail", Toast.LENGTH_LONG).show();
         }
         ClearEditText();
         dA.closeDB();

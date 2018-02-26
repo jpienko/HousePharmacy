@@ -6,7 +6,7 @@
     android:background="@drawable/pills"
     android:baselineAligned="false"
     android:orientation="horizontal">
-    tools:context="com.example.joanna.housepharmacyproject.UpdateActivity">
+    tools:context="com.example.joanna.housepharmacyproject.UpdateMedActivity">
 
     <LinearLayout
         android:id="@+id/layout1"

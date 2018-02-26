@@ -10,7 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class AddActivity extends AppCompatActivity {
+public class AddMedActivity extends AppCompatActivity {
 
 
     DatabaseAdapter dA;
@@ -35,13 +35,13 @@ public class AddActivity extends AppCompatActivity {
     void Click(){
         dA = new DatabaseAdapter(this);
         dA.openDB();
-        if (dose.getText().toString()==null||dose.getText().toString().equals("")){
+        if (dose.getText().toString().equals("")){
             dose.setText("0");
         }
-        if (place.getText().toString()==null|| place.getText().toString().equals("")){
+        if (place.getText().toString().equals("")){
             place.setText("none");
         }
-        if (amount.getText().toString()==null|| amount.getText().toString().equals("")){
+        if (amount.getText().toString().equals("")){
             amount.setText("0");
         }
         long didItWork = dA.addData(name.getText().toString(),
@@ -49,9 +49,9 @@ public class AddActivity extends AppCompatActivity {
                 Double.parseDouble(dose.getText().toString().replaceAll(",",".")),
                 dA.getPlaceId(place.getText().toString()));
         if (didItWork>0) {
-            Toast.makeText(AddActivity.this, "Succsess", Toast.LENGTH_LONG).show();
+            Toast.makeText(AddMedActivity.this, "Succsess", Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(AddActivity.this, "Fail", Toast.LENGTH_LONG).show();
+            Toast.makeText(AddMedActivity.this, "Fail", Toast.LENGTH_LONG).show();
         }
         ClearEditText();
         dA.closeDB();

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/pills"
 
-    tools:context="com.example.joanna.housepharmacyproject.SearchActivity">
+    tools:context="com.example.joanna.housepharmacyproject.SearchMedActivity">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

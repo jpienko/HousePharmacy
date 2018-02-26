@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/pills"
 
-    tools:context="com.example.joanna.housepharmacyproject.DisplayActivity">
+    tools:context="com.example.joanna.housepharmacyproject.DisplayMedActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recView"

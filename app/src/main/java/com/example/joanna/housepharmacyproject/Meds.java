@@ -6,7 +6,7 @@ package com.example.joanna.housepharmacyproject;
 
 public class Meds {
     private String name;
-    private Double dose;
+    private String dose;
     private String place;
 
     public String getName() {
@@ -17,11 +17,11 @@ public class Meds {
         this.name = name;
     }
 
-    public Double getDose() {
+    public String getDose() {
         return dose;
     }
 
-    public void setDose(Double dose) {
+    public void setDose(String dose) {
         this.dose = dose;
     }
 
@@ -52,7 +52,7 @@ public class Meds {
     private int amount;
     private int id;
 
-    public Meds(int id, String name, Double dose, Integer amount, String place) {
+    public Meds(int id, String name, String dose, Integer amount, String place) {
         this.name = name;
         this.dose = dose;
         this.place = place;

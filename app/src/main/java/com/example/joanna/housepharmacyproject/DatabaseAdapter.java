@@ -5,16 +5,15 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-
-import butterknife.internal.Utils;
+import android.database.sqlite.SQLiteException;
 
 /**
  * Created by Joanna on 2018-02-16.
  */
 
 public class DatabaseAdapter {
-    Context context;
 
+    Context context;
     SQLiteDatabase db;
     DatabaseHelper dbHelper;
 
@@ -23,7 +22,6 @@ public class DatabaseAdapter {
         dbHelper = new DatabaseHelper(context);
     }
 
-    //OPEN DATABASE
     public DatabaseAdapter openDB() {
         try {
             db = dbHelper.getWritableDatabase();
@@ -31,11 +29,9 @@ public class DatabaseAdapter {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return this;
     }
 
-    //CLOSE DATABASE
     public void closeDB() {
         try {
             dbHelper.close();
@@ -43,7 +39,6 @@ public class DatabaseAdapter {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     //INSERT
@@ -65,9 +60,9 @@ public class DatabaseAdapter {
 
     //RETRIEVE
     public Cursor getAllMeds() {
-        final String MY_QUERY = "SELECT med." +DBConstants.ID+", med."+DBConstants.NAME+", med."+DBConstants.AMOUNT+", med."+DBConstants.DOSE+", pl."+DBConstants.PLACE_NAME+
-                                " FROM "+DBConstants.MEDSTABLE+" med " +
-                                "INNER JOIN "+DBConstants.PLACESTABLE +" pl ON med."+DBConstants.PLACE+"=pl."+ DBConstants.ID_PLACE;
+        final String MY_QUERY = "SELECT med." + DBConstants.ID + ", med." + DBConstants.NAME + ", med." + DBConstants.AMOUNT + ", med." + DBConstants.DOSE + ", pl." + DBConstants.PLACE_NAME +
+                " FROM " + DBConstants.MEDSTABLE + " med " +
+                "INNER JOIN " + DBConstants.PLACESTABLE + " pl ON med." + DBConstants.PLACE + "=pl." + DBConstants.ID_PLACE;
 
 
         return db.rawQuery(MY_QUERY, null);
@@ -96,26 +91,29 @@ public class DatabaseAdapter {
 
     }
 
-    public Cursor searchDB(String name){
+    public Cursor searchDB(String name) {
         String[] columns = {DBConstants.ID, DBConstants.NAME, DBConstants.DOSE, DBConstants.AMOUNT, DBConstants.PLACE};
 
-        return db.query(DBConstants.MEDSTABLE, columns, DBConstants.NAME +"=?", new String[]{name}, null, null, DBConstants.ID);
+        return db.query(DBConstants.MEDSTABLE, columns, DBConstants.NAME + "=?", new String[]{name}, null, null, DBConstants.ID);
     }
 
-    public int getPlaceId(String placeName){
+    public int getPlaceId(String placeName) {
         int id = 0;
 
-        final String MY_QUERY = "SELECT pl." +DBConstants.ID_PLACE+
-                " FROM "+DBConstants.PLACESTABLE +
-                " WHERE pl." +DBConstants.PLACE_NAME+" = ?";
+        final String MY_QUERY = "SELECT pl." + DBConstants.ID_PLACE +
+                " FROM " + DBConstants.PLACESTABLE +
+                " WHERE pl." + DBConstants.PLACE_NAME + " = ?";
 
         Cursor cursor = db.rawQuery(MY_QUERY, new String[]{placeName});
 
-       if (cursor.getCount() > 0) {
+        if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             id = cursor.getInt(cursor.getColumnIndex(DBConstants.ID_PLACE));
         }
 
         return id;
     }
+
+
+
 }

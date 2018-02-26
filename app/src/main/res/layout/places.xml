@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backMist"
+    android:layout_marginTop="10dp"
+    tools:context="com.example.joanna.housepharmacyproject.PlaceAddActivity">
+
+    <TextView
+        android:id="@+id/tvPlaceName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="11dp"
+        android:layout_toEndOf="@+id/Name"
+        android:text="Nazwa miejsca"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvPlaceId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvName"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="ID"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold"
+
+        tools:ignore="UnknownIdInLayout" />
+
+    <TextView
+        android:id="@+id/tvDescrition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvPlaceName"
+        android:layout_below="@+id/tvPlaceName"
+        android:text="Opis"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="11dp"
+        android:layout_toEndOf="@+id/tvPlaceId"
+        android:text="Nazwa miejsca"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/Descrition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Name"
+        android:layout_below="@+id/Name"
+        android:text="Opis"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/bGoToUpdatePlace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Descrition"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:text="AKTUALIZUJ"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/bGoToContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/tvDescrition"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:text="Pokaż Zawartość"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

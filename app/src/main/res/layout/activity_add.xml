@@ -6,7 +6,7 @@
     android:background="@drawable/pills"
     android:orientation="vertical"
 
-    tools:context="com.example.joanna.housepharmacyproject.AddActivity">
+    tools:context="com.example.joanna.housepharmacyproject.AddMedActivity">
 
     <TextView
         android:layout_width="wrap_content"

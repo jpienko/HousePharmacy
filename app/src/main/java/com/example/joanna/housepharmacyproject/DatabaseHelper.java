@@ -17,26 +17,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        try
-        {
-            db.execSQL(DBConstants.CREATE_TB);
-            db.execSQL(DBConstants.CREATE_TB2);
+        try {
+            db.execSQL(DBConstants.CREATE_TABLE_MEDS);
+            db.execSQL(DBConstants.CREATE_TABLE_PLACES);
 
-        }catch (Exception ex)
-        {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS "+DBConstants.MEDSTABLE);
-        db.execSQL("DROP TABLE IF EXISTS "+DBConstants.PLACESTABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + DBConstants.MEDSTABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + DBConstants.PLACESTABLE);
         onCreate(db);
 
+
     }
-
-
 
 
 }

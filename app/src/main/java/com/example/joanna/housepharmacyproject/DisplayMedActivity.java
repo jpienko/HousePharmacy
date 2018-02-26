@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toolbar;
 
 import java.util.ArrayList;
 
@@ -15,7 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class DisplayActivity extends AppCompatActivity {
+public class DisplayMedActivity extends AppCompatActivity {
 
 
     @BindView(R.id.recView)
@@ -55,7 +54,7 @@ public class DisplayActivity extends AppCompatActivity {
             int id = c.getInt(0);
             String name = c.getString(1);
             int amount = c.getInt(2);
-            Double dose = c.getDouble(3);
+            String dose = c.getString(3);
             String place = c.getString(4);
             Meds p = new Meds(id, name, dose, amount, place);
             meds.add(p);
@@ -72,7 +71,7 @@ public class DisplayActivity extends AppCompatActivity {
         recView.setLayoutManager(layoutManager);
 
         RecyclerViewClickListener listener = (view, position, id) -> {
-            Intent intent = new Intent(DisplayActivity.this, UpdateActivity.class);
+            Intent intent = new Intent(DisplayMedActivity.this, UpdateMedActivity.class);
             Bundle bundle = new Bundle();
             bundle.putInt("Id", id);
             intent.putExtras(bundle);

@@ -1,6 +1,5 @@
 package com.example.joanna.housepharmacyproject;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +29,7 @@ public class MedAdapter extends RecyclerView.Adapter<MedAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemLayoutView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.items, null);
+                .inflate(R.layout.meds, null);
         return new ViewHolder(itemLayoutView, listener);
     }
 

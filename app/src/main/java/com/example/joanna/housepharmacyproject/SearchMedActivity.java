@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchMedActivity extends AppCompatActivity {
 
     MedAdapter medAdapter;
     ArrayList<Meds> meds = new ArrayList<>();
@@ -60,7 +60,7 @@ public class SearchActivity extends AppCompatActivity {
             int id = c.getInt(0);
             String name = c.getString(1);
             int amount = c.getInt(2);
-            Double dose = c.getDouble(3);
+            String dose = c.getString(3);
             String place = c.getString(4);
             Meds p = new Meds(id, name, dose, amount, place);
             meds.add(p);
@@ -75,7 +75,7 @@ public class SearchActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         RecyclerViewClickListener listener = (view, position, id) -> {
-            Intent intent = new Intent(SearchActivity.this, UpdateActivity.class);
+            Intent intent = new Intent(SearchMedActivity.this, UpdateMedActivity.class);
             Bundle bundle = new Bundle();
             bundle.putInt("Id", id);
             intent.putExtras(bundle);

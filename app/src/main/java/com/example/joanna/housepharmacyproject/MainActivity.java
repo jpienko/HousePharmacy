@@ -3,9 +3,7 @@ package com.example.joanna.housepharmacyproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Display;
 import android.view.View;
-import android.widget.Button;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -15,18 +13,28 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.bAdd)
     void onClickAdd(View view) {
-        Intent in = new Intent(MainActivity.this, AddActivity.class);
+        Intent in = new Intent(MainActivity.this, AddMedActivity.class);
         startActivity(in);
     }
     @OnClick(R.id.bShow)
     void onClickShow(View view) {
-        Intent in = new Intent(MainActivity.this, DisplayActivity.class);
+        Intent in = new Intent(MainActivity.this, DisplayMedActivity.class);
         startActivity(in);
     }
 
+    @OnClick(R.id.bAddPl)
+    void onClickAddPlace(View view) {
+        Intent in = new Intent(MainActivity.this, PlaceAddActivity.class);
+        startActivity(in);
+    }
+    @OnClick(R.id.bShowPlace)
+    void onClickShowPlace(View view) {
+        Intent in = new Intent(MainActivity.this, DisplayMedActivity.class);
+        startActivity(in);
+    }
     @OnClick(R.id.bSearch)
     void onClickSearch(View view) {
-        Intent in = new Intent(MainActivity.this, SearchActivity.class);
+        Intent in = new Intent(MainActivity.this, SearchMedActivity.class);
         startActivity(in);
     }
     @Override
