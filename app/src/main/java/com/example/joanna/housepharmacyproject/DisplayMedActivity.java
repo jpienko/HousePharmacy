@@ -36,13 +36,13 @@ public class DisplayMedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_med);
         ButterKnife.bind(this);
-        retrieve();
+        retrieveMed();
         recView.setLayoutManager(new LinearLayoutManager(this));
         recView.setItemAnimator(new DefaultItemAnimator());
-        goToUpdate();
+        goToUpdateMed();
     }
 
-    private void retrieve() {
+    private void retrieveMed() {
         meds.clear();
 
         DatabaseMedAdapter db = new DatabaseMedAdapter(this);
@@ -55,8 +55,8 @@ public class DisplayMedActivity extends AppCompatActivity {
             int amount = c.getInt(2);
             String dose = c.getString(3);
             String place = c.getString(4);
-            Meds p = new Meds(id, name, dose, amount, place);
-            meds.add(p);
+            Meds m = new Meds(id, name, dose, amount, place);
+            meds.add(m);
         }
         if (!(meds.size() < 1)) {
             recView.setAdapter(medAdapter);
@@ -65,7 +65,7 @@ public class DisplayMedActivity extends AppCompatActivity {
 
     }
 
-    public void goToUpdate() {
+    public void goToUpdateMed() {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recView.setLayoutManager(layoutManager);
 

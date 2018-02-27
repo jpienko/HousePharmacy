@@ -14,6 +14,7 @@ public class AddMedActivity extends AppCompatActivity {
 
 
     DatabaseMedAdapter dA;
+    DatabasePlaceAdapter dAPlace;
 
     @BindView(R.id.etName)
     EditText name;
@@ -34,6 +35,7 @@ public class AddMedActivity extends AppCompatActivity {
     @OnClick(R.id.bAddMed)
     void Click(){
         dA = new DatabaseMedAdapter(this);
+        dAPlace = new DatabasePlaceAdapter(this);
         dA.openDB();
         if (dose.getText().toString().equals("")){
             dose.setText("0");
@@ -47,7 +49,7 @@ public class AddMedActivity extends AppCompatActivity {
         long didItWork = dA.addData(name.getText().toString(),
                 Integer.parseInt(amount.getText().toString()),
                 Double.parseDouble(dose.getText().toString().replaceAll(",",".")),
-                dA.getPlaceId(place.getText().toString()));
+                dAPlace.getPlaceId(place.getText().toString()));
         if (didItWork>0) {
             Toast.makeText(AddMedActivity.this, "Succsess", Toast.LENGTH_LONG).show();
         } else {

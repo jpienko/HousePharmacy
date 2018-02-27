@@ -1,5 +1,6 @@
 package com.example.joanna.housepharmacyproject;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -20,6 +21,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         try {
             db.execSQL(DBConstants.CREATE_TABLE_MEDS);
             db.execSQL(DBConstants.CREATE_TABLE_PLACES);
+
+            ContentValues cv = new ContentValues();
+            cv.put(DBConstants.PLACE_NAME, "none");
+            cv.put(DBConstants.PLACE_DESCRIPTION,"Leki nieprzypisane do żadnego miejsca");
+            db.insert(DBConstants.PLACESTABLE,null,cv);
 
         } catch (Exception ex) {
             ex.printStackTrace();

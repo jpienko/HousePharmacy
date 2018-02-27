@@ -48,16 +48,6 @@ public class DatabasePlaceAdapter {
             ContentValues cv = new ContentValues();
             cv.put(DBConstants.PLACE_NAME, place);
             cv.put(DBConstants.PLACE_DESCRIPTION,description);
-            try
-            {
-                db.insert(DBConstants.PLACESTABLE, null, cv);
-            }
-            catch ( SQLiteException e)
-            {
-                dbHelper.onCreate(db);
-                db.insert(DBConstants.PLACESTABLE, null, cv);
-            }
-
             return db.insert(DBConstants.PLACESTABLE, null, cv);
         } catch (Exception exp) {
             exp.printStackTrace();
@@ -67,9 +57,26 @@ public class DatabasePlaceAdapter {
     }
 
     public Cursor getAllPlaces() {
-        final String MY_QUERY = "SELECT * FROM "+DBConstants.PLACESTABLE;
+        String[] columns = {DBConstants.ID_PLACE, DBConstants.PLACE_NAME, DBConstants.PLACE_DESCRIPTION};
 
-        return db.rawQuery(MY_QUERY, null);
+        return db.query(DBConstants.PLACESTABLE, columns, null, null, null, null, null);
     }
 
+
+    public int getPlaceId(String placeName) {
+        int id = 0;
+
+        final String MY_QUERY = "SELECT " + DBConstants.ID_PLACE +
+                " FROM " + DBConstants.PLACESTABLE +
+                " WHERE " + DBConstants.PLACE_NAME + " = ?";
+
+        Cursor cursor = db.rawQuery(MY_QUERY, new String[]{placeName});
+
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            id = cursor.getInt(cursor.getColumnIndex(DBConstants.ID_PLACE));
+        }
+
+        return id;
+    }
 }

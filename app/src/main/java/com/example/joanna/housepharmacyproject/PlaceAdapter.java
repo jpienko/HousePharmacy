@@ -27,14 +27,14 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
     }
 
     @Override
-    public PlaceAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemLayoutView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.places, null);
-        return new PlaceAdapter.ViewHolder(itemLayoutView, listener);
+        return new ViewHolder(itemLayoutView, listener);
     }
 
     @Override
-    public void onBindViewHolder(PlaceAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         holder.tvIdPlace.setText(String.valueOf(places.get(position).getId_place()));
         holder.tvPlaceName.setText(places.get(position).getPlaceName());
         holder.tvDescription.setText(places.get(position).getPlaceDescription());
@@ -46,7 +46,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
         return places.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         RecyclerViewClickListener listener;
 
         @BindView(R.id.bGoToUpdatePlace)
@@ -68,13 +68,11 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
             super(itemView);
             ButterKnife.bind(this, itemView);
             this.listener = listener;
-            goToContent.setOnClickListener((View.OnClickListener) this);
-            goToUpdatePlace.setOnClickListener((View.OnClickListener) this);
+            goToContent.setOnClickListener(this);
         }
 
-        public void OnClick(View view) {
+        @Override
+        public void onClick(View view) {
             listener.onClick(view, getAdapterPosition(), Integer.parseInt(tvPlaceName.getText().toString()));
         }
-    }
-}
-
+    }}

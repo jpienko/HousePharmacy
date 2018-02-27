@@ -12,11 +12,11 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class DatabaseMedAdapter {
 
-    Context context;
-    SQLiteDatabase db;
-    DatabaseHelper dbHelper;
+    private Context context;
+    private SQLiteDatabase db;
+    private DatabaseHelper dbHelper;
 
-    public DatabaseMedAdapter(Context context) {
+    DatabaseMedAdapter(Context context) {
         this.context = context;
         dbHelper = new DatabaseHelper(context);
     }
@@ -63,7 +63,6 @@ public class DatabaseMedAdapter {
                 " FROM " + DBConstants.MEDSTABLE + " med " +
                 "INNER JOIN " + DBConstants.PLACESTABLE + " pl ON med." + DBConstants.PLACE + "=pl." + DBConstants.ID_PLACE;
 
-
         return db.rawQuery(MY_QUERY, null);
 
     }
@@ -95,24 +94,6 @@ public class DatabaseMedAdapter {
 
         return db.query(DBConstants.MEDSTABLE, columns, DBConstants.NAME + "=?", new String[]{name}, null, null, DBConstants.ID);
     }
-
-    public int getPlaceId(String placeName) {
-        int id = 0;
-
-        final String MY_QUERY = "SELECT pl." + DBConstants.ID_PLACE +
-                " FROM " + DBConstants.PLACESTABLE +
-                " WHERE pl." + DBConstants.PLACE_NAME + " = ?";
-
-        Cursor cursor = db.rawQuery(MY_QUERY, new String[]{placeName});
-
-        if (cursor.getCount() > 0) {
-            cursor.moveToFirst();
-            id = cursor.getInt(cursor.getColumnIndex(DBConstants.ID_PLACE));
-        }
-
-        return id;
-    }
-
 
 
 }

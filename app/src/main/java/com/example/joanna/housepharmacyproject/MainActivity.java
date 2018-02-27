@@ -24,12 +24,12 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.bAddPl)
     void onClickAddPlace(View view) {
-        Intent in = new Intent(MainActivity.this, PlaceAddActivity.class);
+        Intent in = new Intent(MainActivity.this, AddPlaceActivity.class);
         startActivity(in);
     }
     @OnClick(R.id.bShowPlace)
     void onClickShowPlace(View view) {
-        Intent in = new Intent(MainActivity.this, DisplayMedActivity.class);
+        Intent in = new Intent(MainActivity.this, DisplayPlaceActivity.class);
         startActivity(in);
     }
     @OnClick(R.id.bSearch)

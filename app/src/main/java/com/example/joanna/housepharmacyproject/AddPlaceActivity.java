@@ -10,7 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class PlaceAddActivity extends AppCompatActivity {
+public class AddPlaceActivity extends AppCompatActivity {
 
     DatabasePlaceAdapter databasePlaceAdapter;
 
@@ -37,9 +37,9 @@ public class PlaceAddActivity extends AppCompatActivity {
         long didItWork = databasePlaceAdapter.addPlace(name.getText().toString(),
                 description.getText().toString());
         if (didItWork>0) {
-            Toast.makeText(PlaceAddActivity.this, "Succsess", Toast.LENGTH_LONG).show();
+            Toast.makeText(AddPlaceActivity.this, "Succsess", Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(PlaceAddActivity.this, "Fail", Toast.LENGTH_LONG).show();
+            Toast.makeText(AddPlaceActivity.this, "Fail", Toast.LENGTH_LONG).show();
         }
         ClearEditText();
         databasePlaceAdapter.closeDB();
