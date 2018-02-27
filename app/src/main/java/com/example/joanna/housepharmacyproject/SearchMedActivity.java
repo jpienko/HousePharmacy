@@ -41,7 +41,7 @@ public class SearchMedActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_search_med);
         ButterKnife.bind(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -52,7 +52,7 @@ public class SearchMedActivity extends AppCompatActivity {
     public void showData() {
         meds.clear();
 
-        DatabaseAdapter db = new DatabaseAdapter(this);
+        DatabaseMedAdapter db = new DatabaseMedAdapter(this);
         db.openDB();
 
         Cursor c = db.searchDB(etSearch.getText().toString());

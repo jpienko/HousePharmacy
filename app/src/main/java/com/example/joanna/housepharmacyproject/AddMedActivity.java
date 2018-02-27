@@ -13,7 +13,7 @@ import butterknife.OnClick;
 public class AddMedActivity extends AppCompatActivity {
 
 
-    DatabaseAdapter dA;
+    DatabaseMedAdapter dA;
 
     @BindView(R.id.etName)
     EditText name;
@@ -33,7 +33,7 @@ public class AddMedActivity extends AppCompatActivity {
     }
     @OnClick(R.id.bAddMed)
     void Click(){
-        dA = new DatabaseAdapter(this);
+        dA = new DatabaseMedAdapter(this);
         dA.openDB();
         if (dose.getText().toString().equals("")){
             dose.setText("0");
@@ -60,7 +60,7 @@ public class AddMedActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add);
+        setContentView(R.layout.activity_med_add);
         ButterKnife.bind(this);
     }
 

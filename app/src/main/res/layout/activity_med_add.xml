@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         android:background="@color/backMist"
         android:orientation="vertical">
 
@@ -49,21 +50,21 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:textStyle="bold"
             android:gravity="center"
             android:hint="Ilość"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etDose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:textStyle="bold"
             android:layout_marginRight="20dp"
             android:gravity="center"
             android:hint="Dawka"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etPlace"
@@ -75,8 +76,7 @@
             android:gravity="center"
             android:hint="Miejsce"
             android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
 
     </LinearLayout>
@@ -88,21 +88,20 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:background="@color/colorPrimary"
         android:text="Dodaj lek"
-        android:textColor="@android:color/white" />/>
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/bBackAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:background="@color/colorPrimary"
         android:text="Wróć"
-        android:textColor="@android:color/white" />/>
+        android:textColor="@android:color/white" />
 </LinearLayout>

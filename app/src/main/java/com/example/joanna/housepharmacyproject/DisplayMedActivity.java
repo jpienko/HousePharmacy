@@ -34,7 +34,7 @@ public class DisplayMedActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display);
+        setContentView(R.layout.activity_display_med);
         ButterKnife.bind(this);
         retrieve();
         recView.setLayoutManager(new LinearLayoutManager(this));
@@ -46,7 +46,7 @@ public class DisplayMedActivity extends AppCompatActivity {
     private void retrieve() {
         meds.clear();
 
-        DatabaseAdapter db = new DatabaseAdapter(this);
+        DatabaseMedAdapter db = new DatabaseMedAdapter(this);
         db.openDB();
 
         Cursor c = db.getAllMeds();

@@ -5,24 +5,23 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 
 /**
  * Created by Joanna on 2018-02-16.
  */
 
-public class DatabaseAdapter {
+public class DatabaseMedAdapter {
 
     Context context;
     SQLiteDatabase db;
     DatabaseHelper dbHelper;
 
-    public DatabaseAdapter(Context context) {
+    public DatabaseMedAdapter(Context context) {
         this.context = context;
         dbHelper = new DatabaseHelper(context);
     }
 
-    public DatabaseAdapter openDB() {
+    public DatabaseMedAdapter openDB() {
         try {
             db = dbHelper.getWritableDatabase();
 

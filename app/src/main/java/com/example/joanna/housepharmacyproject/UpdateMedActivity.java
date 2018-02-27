@@ -12,7 +12,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class UpdateMedActivity extends AppCompatActivity {
-    DatabaseAdapter dA;
+    DatabaseMedAdapter dA;
 
     @BindView(R.id.tvAmountUpdate)
     TextView amountCurrent;
@@ -42,14 +42,14 @@ public class UpdateMedActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update);
+        setContentView(R.layout.activity_update_med);
         ButterKnife.bind(this);
         setTextView();
     }
 
     @OnClick(R.id.bUpdateMed)
     void Click() {
-        dA = new DatabaseAdapter(this);
+        dA = new DatabaseMedAdapter(this);
         dA.openDB();
         String name = getNewRowData(nameCurrent, nameUpdate);
         String dose = getNewRowData(doseCurrent, doseUpdate);
@@ -109,7 +109,7 @@ public class UpdateMedActivity extends AppCompatActivity {
     }
 
     public void setTextView() {
-        dA = new DatabaseAdapter(this);
+        dA = new DatabaseMedAdapter(this);
         int id = getID();
         dA.openDB();
         nameCurrent.setText(dA.getColumnContent(DBConstants.NAME, id));
