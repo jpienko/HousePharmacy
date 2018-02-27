@@ -23,7 +23,8 @@
         <activity android:name=".UpdateMedActivity" />
         <activity android:name=".SearchMedActivity" />
         <activity android:name=".PlaceAddActivity" />
-        <activity android:name=".DisplayPlaceActivity"></activity>
+        <activity android:name=".DisplayPlaceActivity" />
+        <activity android:name=".UpdatePlaceActivity"></activity>
     </application>
 
 </manifest>

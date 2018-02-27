@@ -39,7 +39,6 @@ public class DisplayMedActivity extends AppCompatActivity {
         retrieve();
         recView.setLayoutManager(new LinearLayoutManager(this));
         recView.setItemAnimator(new DefaultItemAnimator());
-
         goToUpdate();
     }
 
