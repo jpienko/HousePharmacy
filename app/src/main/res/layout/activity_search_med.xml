@@ -3,11 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pills"
 
     tools:context="com.example.joanna.housepharmacyproject.SearchMedActivity">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
 
     <LinearLayout
+        android:layout_below="@id/toolbar"
         android:id="@+id/ll1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:gravity="center"
-            android:hint="Szukaj"
+            android:hint="@string/search_string"
             android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold" />
 
@@ -33,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:text="Szukaj"
+            android:text="@string/search_string"
             android:textColor="@android:color/white" />
     </LinearLayout>
 
@@ -61,6 +65,6 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:background="@color/colorPrimary"
-        android:text="Wróć"
+        android:text="@string/back_button"
         android:textColor="@android:color/white" />
 </RelativeLayout>

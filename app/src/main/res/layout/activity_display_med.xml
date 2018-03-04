@@ -3,12 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pills"
 
     tools:context="com.example.joanna.housepharmacyproject.DisplayMedActivity">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recView"
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
@@ -28,7 +32,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="Wróć"
+        android:text="@string/back_button"
         android:id="@+id/bBackDisp"
         android:textColor="@android:color/white"
         android:background="@color/colorPrimary"/>

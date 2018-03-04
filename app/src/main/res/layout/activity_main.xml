@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pills"
     tools:context="com.example.joanna.housepharmacyproject.MainActivity"
     android:orientation="vertical">
 
-
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
 
     <Button
         android:id="@+id/bSearch"
@@ -15,7 +17,7 @@
         android:layout_height="wrap_content"
         android:text="Szukaj leku"
         android:textColor="@android:color/white"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/roundedbutton"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -27,7 +29,7 @@
         android:layout_height="wrap_content"
         android:text="Dodaj lek"
         android:textColor="@android:color/white"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/roundedbutton"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -40,7 +42,7 @@
         android:layout_height="wrap_content"
         android:text="Uzupełnij informacje"
         android:textColor="@android:color/white"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/roundedbutton"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -53,7 +55,7 @@
         android:layout_height="wrap_content"
         android:text="Pokaż wszystkie leki"
         android:textColor="@android:color/white"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/roundedbutton"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -64,7 +66,7 @@
         android:layout_height="wrap_content"
         android:text="Dodaj miejsce"
         android:textColor="@android:color/white"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/roundedbutton"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -76,7 +78,7 @@
         android:layout_height="wrap_content"
         android:text="Pokaż wszystkie miejsca"
         android:textColor="@android:color/white"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/roundedbutton"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
