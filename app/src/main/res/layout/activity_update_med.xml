@@ -17,7 +17,6 @@
         android:id="@+id/layout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvInfo"
         android:layout_gravity="center"
         android:background="@color/backMist"
         android:orientation="vertical"
@@ -88,7 +87,6 @@
         android:id="@+id/layout2"
         android:layout_width="145dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvInfo"
         android:layout_gravity="center"
         android:layout_marginStart="3dp"
         android:layout_toEndOf="@id/layout1"
@@ -164,7 +162,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@id/tvInfo"
         android:layout_gravity="center"
         android:layout_marginStart="3dp"
         android:layout_marginEnd="5dp"
@@ -235,24 +232,11 @@
             android:textSize="@dimen/tvUpdate" />
     </LinearLayout>
 
-    <TextView
-        android:layout_below="@id/toolbar"
-        android:id="@+id/tvInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="30dp"
-        android:background="@color/backMist"
-        android:gravity="center"
-        android:text="@string/instruction_update"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="@dimen/tvAdd" />
-
     <Button
         android:id="@+id/bUpdateMed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/bBackUpdate"
+        android:layout_above="@id/bDeletePlaceUpdate"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="Aktualizuj lek"
@@ -261,7 +245,7 @@
         android:background="@color/colorPrimary"/>
 
     <Button
-        android:id="@+id/bBackUpdate"
+        android:id="@+id/bDeletePlaceUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -269,7 +253,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
-        android:text="@string/back_button"
+        android:text="@string/delete_string"
         android:textColor="@android:color/white"
         android:background="@color/colorPrimary"/>
 

@@ -81,20 +81,35 @@
         android:paddingLeft="25dp"
         android:paddingRight="25dp"
         android:text="AKTUALIZUJ"
+        android:layout_alignBaseline="@id/bDeletePlaceFromList"
         android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/bGoToContent"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/tvDescrition"
-        android:layout_marginEnd="20dp"
+        android:layout_below="@+id/bDeletePlaceFromList"
+        android:layout_marginEnd="40dp"
         android:layout_marginTop="10dp"
+        android:layout_alignStart="@id/bGoToUpdatePlace"
         android:background="@color/colorPrimary"
         android:paddingLeft="25dp"
         android:paddingRight="25dp"
         android:text="Pokaż Zawartość"
         android:textColor="@android:color/white" />
 
+    <Button
+        android:id="@+id/bDeletePlaceFromList"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/tvDescrition"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:text="usuń"
+        android:textColor="@android:color/white" />
 </RelativeLayout>

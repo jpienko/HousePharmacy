@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,26 +10,7 @@
         layout="@layout/toolbar"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="30dp"
-        android:background="@color/backMist"
-        android:gravity="center"
-        android:text="@string/instruction_add_place"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="@dimen/tvAdd" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@color/backMist"
-        android:orientation="vertical">
 
         <EditText
             android:id="@+id/etPlaceName"
@@ -39,6 +20,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
+            android:layout_centerInParent="true"
             android:hint="@string/name_string"
             android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold"
@@ -47,6 +29,7 @@
 
         <EditText
             android:id="@+id/etDescription"
+            android:layout_below="@id/etPlaceName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -58,7 +41,7 @@
             android:textStyle="bold" />
 
 
-    </LinearLayout>
+
 
 
     <Button
@@ -67,20 +50,10 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
         android:background="@color/colorPrimary"
         android:text="Dodaj miejsce"
+        android:layout_alignParentBottom="true"
         android:textColor="@android:color/white" />
 
-    <Button
-        android:id="@+id/bBackAddPlace"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="30dp"
-        android:background="@color/colorPrimary"
-        android:text="@string/back_button"
-        android:textColor="@android:color/white" />
-</LinearLayout>
+</RelativeLayout>

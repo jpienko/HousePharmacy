@@ -10,7 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class AddMedActivity extends AppCompatActivity {
+public class AddMedActivity extends Toolbar {
 
 
     DatabaseMedAdapter dA;
@@ -27,11 +27,7 @@ public class AddMedActivity extends AppCompatActivity {
 
     @BindView(R.id.etPlace)
     EditText place;
-    @OnClick(R.id.bBackAdd)
-    void click1() {
-        Intent in = new Intent(this, MainActivity.class);
-        startActivity(in);
-    }
+
     @OnClick(R.id.bAddMed)
     void Click(){
         dA = new DatabaseMedAdapter(this);
@@ -64,6 +60,7 @@ public class AddMedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_med_add);
         ButterKnife.bind(this);
+        initToolBar("Dodaj lek",R.string.instruction_add_place);
     }
 
     private void ClearEditText(){

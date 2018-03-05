@@ -16,10 +16,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SearchMedActivity extends AppCompatActivity {
+public class SearchMedActivity extends Toolbar {
+
 
     MedAdapter medAdapter;
     ArrayList<Meds> meds = new ArrayList<>();
+
 
     @BindView(R.id.etSearch)
     EditText etSearch;
@@ -33,11 +35,7 @@ public class SearchMedActivity extends AppCompatActivity {
         showData();
     }
 
-    @OnClick(R.id.bBackSearch)
-    void ClickBackSearch() {
-        Intent in = new Intent(this, MainActivity.class);
-        startActivity(in);
-    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +43,7 @@ public class SearchMedActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-
+        initToolBar("Szukaj",2);
         goToUpdate();
     }
 

@@ -14,7 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class DisplayMedActivity extends AppCompatActivity {
+public class DisplayMedActivity extends Toolbar {
 
 
     @BindView(R.id.recView)
@@ -24,11 +24,6 @@ public class DisplayMedActivity extends AppCompatActivity {
     ArrayList<Meds> meds = new ArrayList<>();
 
 
-    @OnClick(R.id.bBackDisp)
-    void click1() {
-        Intent in = new Intent(this, MainActivity.class);
-        startActivity(in);
-    }
 
 
     @Override
@@ -40,6 +35,7 @@ public class DisplayMedActivity extends AppCompatActivity {
         recView.setLayoutManager(new LinearLayoutManager(this));
         recView.setItemAnimator(new DefaultItemAnimator());
         goToUpdateMed();
+        initToolBar("Lista leków", 1);
     }
 
     private void retrieveMed() {

@@ -11,51 +11,69 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="11dp"
-        android:layout_toEndOf="@+id/Name"
+        android:layout_marginStart="110dp"
+        android:layout_toEndOf="@id/Name"
+        android:layout_marginTop="10dp"
         android:text="@string/name_string"
-        android:textSize="@dimen/tvDisplay"
-        android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
-        />
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/tvId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvName"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="ID"
-        android:textSize="@dimen/tvDisplay"
-        android:textStyle="bold"
-        android:layout_alignBaseline="@+id/tvName"
         android:textColor="@color/colorPrimaryDark"
-
-        />
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvDose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/tvAmount"
+        android:layout_alignStart="@+id/tvName"
         android:layout_below="@+id/tvName"
         android:text="@string/dose_string"
-        android:textSize="@dimen/tvDisplay"
-        android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
-        />
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvForm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDose"
+        android:layout_alignStart="@+id/tvDose"
+        android:text="@string/form_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/tvName"
-        android:layout_below="@+id/Dose"
+        android:layout_alignStart="@+id/tvForm"
+        android:layout_below="@+id/tvForm"
         android:text="@string/amount_string"
-        android:textSize="@dimen/tvDisplay"
-        android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
-        />
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvPurpose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvPlace"
+        android:layout_below="@+id/Amount"
+        android:text="@string/purpose_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvPlace"
@@ -64,24 +82,22 @@
         android:layout_alignStart="@+id/tvAmount"
         android:layout_alignTop="@+id/Place"
         android:text="@string/place_string"
-        android:textSize="@dimen/tvDisplay"
-        android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
-        />
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="11dp"
+        android:layout_alignBaseline="@+id/tvId"
+        android:layout_alignBottom="@+id/tvId"
+        android:layout_marginStart="25dp"
         android:layout_toEndOf="@+id/tvId"
         android:text="@string/name_string"
-        android:textSize="@dimen/tvDisplay"
-        android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
-        />
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
 
 
     <TextView
@@ -91,44 +107,78 @@
         android:layout_alignStart="@+id/Name"
         android:layout_below="@+id/Name"
         android:text="@string/dose_string"
-        android:textSize="@dimen/tvDisplay"
-        android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
-        />
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/Form"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Dose"
+        android:layout_below="@+id/Dose"
+        android:text="@string/form_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/Dose"
-        android:layout_below="@+id/Dose"
+        android:layout_alignStart="@+id/Form"
+        android:layout_below="@+id/Form"
         android:text="@string/amount_string"
-        android:textSize="@dimen/tvDisplay"
-        android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
-        />
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/Purpose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Amount"
+        android:layout_below="@+id/Amount"
+        android:text="@string/purpose_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Place"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/Amount"
-        android:layout_below="@+id/Amount"
+        android:layout_alignStart="@+id/Purpose"
+        android:layout_below="@+id/Purpose"
         android:text="@string/place_string"
-        android:textSize="@dimen/tvDisplay"
-        android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
-        />
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
 
     <Button
+        android:id="@+id/bGoToUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/tvPlace"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="10dp"
+        android:layout_alignBaseline="@+id/bDeleteMedFromList"
+        android:layout_alignBottom="@+id/bDeleteMedFromList"
+        android:layout_alignStart="@id/tvName"
+        android:background="@color/colorPrimary"
         android:text="AKTUALIZUJ"
-        android:id="@+id/bGoToUpdate"
-        android:textColor="@android:color/white"
-        android:background="@color/colorPrimary"/>
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/bDeleteMedFromList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Place"
+        android:layout_below="@+id/tvPlace"
+        android:layout_marginTop="19dp"
+        android:background="@color/colorPrimary"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:text="usuń"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>

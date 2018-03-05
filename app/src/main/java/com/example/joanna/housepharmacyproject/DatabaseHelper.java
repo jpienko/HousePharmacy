@@ -21,21 +21,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         try {
             db.execSQL(DBConstants.CREATE_TABLE_MEDS);
             db.execSQL(DBConstants.CREATE_TABLE_PLACES);
+            db.execSQL(DBConstants.CREATE_TABLE_FORMS);
 
-            ContentValues cv = new ContentValues();
-            cv.put(DBConstants.PLACE_NAME, "none");
-            cv.put(DBConstants.PLACE_DESCRIPTION,"Leki nieprzypisane do żadnego miejsca");
-            db.insert(DBConstants.PLACESTABLE,null,cv);
+            placeTableStartContent(db);
+            formTableStartContent(db);
 
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
+    private void placeTableStartContent(SQLiteDatabase db) {
+        ContentValues cv = new ContentValues();
+        cv.put(DBConstants.PLACE_NAME, "none");
+        cv.put(DBConstants.PLACE_DESCRIPTION,"Leki nieprzypisane do żadnego miejsca");
+        db.insert(DBConstants.PLACESTABLE,null,cv);
+    }
+    private void formTableStartContent(SQLiteDatabase db) {
+        ContentValues cv = new ContentValues();
+        cv.put(DBConstants.FORM_NAME, "none");
+        db.insert(DBConstants.FORMSTABLE,null,cv);
+    }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + DBConstants.MEDSTABLE);
         db.execSQL("DROP TABLE IF EXISTS " + DBConstants.PLACESTABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + DBConstants.FORMSTABLE);
+
         onCreate(db);
 
 

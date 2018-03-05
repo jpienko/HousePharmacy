@@ -11,5 +11,8 @@
     <string name="place_string">Miejsce</string>
     <string name="description_sting">Opis</string>
     <string name="search_string">Szukaj</string>
+    <string name="delete_string">Usuń</string>
+    <string name="form_string">Forma</string>
+    <string name="purpose_string">Przeznaczenie</string>
 
 </resources>

@@ -14,18 +14,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class DisplayPlaceActivity extends AppCompatActivity {
+public class DisplayPlaceActivity extends Toolbar {
     @BindView(R.id.recViewPlace)
     RecyclerView recViewPlace;
 
     PlaceAdapter placeAdapter;
     ArrayList<Places> places = new ArrayList<>();
 
-    @OnClick(R.id.bBackDispPlace)
-    void onClickBack() {
-        Intent in = new Intent(this, MainActivity.class);
-        startActivity(in);
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +30,7 @@ public class DisplayPlaceActivity extends AppCompatActivity {
         recViewPlace.setLayoutManager(new LinearLayoutManager(this));
         recViewPlace.setItemAnimator(new DefaultItemAnimator());
         goToUpdatePlace();
+        initToolBar("Lista miejsc", 1);
     }
     private void retrievePlace() {
         places.clear();

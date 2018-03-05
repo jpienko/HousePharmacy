@@ -10,7 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class AddPlaceActivity extends AppCompatActivity {
+public class AddPlaceActivity extends Toolbar {
 
     DatabasePlaceAdapter databasePlaceAdapter;
 
@@ -21,11 +21,6 @@ public class AddPlaceActivity extends AppCompatActivity {
     EditText description;
 
 
-    @OnClick(R.id.bBackAddPlace)
-    void clickBack() {
-        Intent in = new Intent(this, MainActivity.class);
-        startActivity(in);
-    }
     @OnClick(R.id.bAddPlace)
     void Click(){
         databasePlaceAdapter = new DatabasePlaceAdapter(this);
@@ -50,6 +45,7 @@ public class AddPlaceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_add);
         ButterKnife.bind(this);
+        initToolBar("Dodaj miejsce", R.string.instruction_add_place);
     }
 
     private void ClearEditText(){

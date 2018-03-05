@@ -3,84 +3,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.joanna.housepharmacyproject.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.example.joanna.housepharmacyproject.MainActivity">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@drawable/pills"></LinearLayout>
 
     <Button
         android:id="@+id/bSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Szukaj leku"
-        android:textColor="@android:color/white"
-        android:background="@drawable/roundedbutton"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundedbutton"
+        android:text="Szukaj leku"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/bAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dodaj lek"
-        android:textColor="@android:color/white"
-        android:background="@drawable/roundedbutton"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
-        />
+        android:background="@drawable/roundedbutton"
+        android:text="Dodaj lek"
+        android:textColor="@android:color/white" />
 
     <Button
-        android:id="@+id/bUpdate"
+        android:id="@+id/bAddPl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Uzupełnij informacje"
-        android:textColor="@android:color/white"
-        android:background="@drawable/roundedbutton"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
-        />
+        android:background="@drawable/roundedbutton"
+        android:text="Dodaj miejsce"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/bShow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pokaż wszystkie leki"
-        android:textColor="@android:color/white"
-        android:background="@drawable/roundedbutton"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"/>
-    <Button
-        android:id="@+id/bAddPl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dodaj miejsce"
-        android:textColor="@android:color/white"
-        android:background="@drawable/roundedbutton"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
-        />
+        android:background="@drawable/roundedbutton"
+        android:text="Pokaż wszystkie leki"
+        android:textColor="@android:color/white" />
+
     <Button
         android:id="@+id/bShowPlace"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pokaż wszystkie miejsca"
-        android:textColor="@android:color/white"
-        android:background="@drawable/roundedbutton"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:background="@drawable/roundedbutton"
+        android:text="Pokaż wszystkie miejsca"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/bHelp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/roundedbutton"
+        android:text="Pomoc"
+        android:textColor="@android:color/white" />
 </LinearLayout>

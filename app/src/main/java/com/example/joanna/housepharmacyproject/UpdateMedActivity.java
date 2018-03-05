@@ -11,8 +11,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class UpdateMedActivity extends AppCompatActivity {
+public class UpdateMedActivity extends Toolbar {
     DatabaseMedAdapter dA;
+
 
     @BindView(R.id.tvAmountUpdate)
     TextView amountCurrent;
@@ -45,6 +46,7 @@ public class UpdateMedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_med);
         ButterKnife.bind(this);
         setTextView();
+        initToolBar("Aktualizuj lek",1);
     }
 
     @OnClick(R.id.bUpdateMed)
@@ -76,11 +78,6 @@ public class UpdateMedActivity extends AppCompatActivity {
 
     }
 
-    @OnClick(R.id.bBackUpdate)
-    void ClickBackUpdate() {
-        Intent in = new Intent(this, MainActivity.class);
-        startActivity(in);
-    }
 
     private int getID() {
         Bundle bundle = getIntent().getExtras();
