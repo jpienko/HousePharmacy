@@ -79,4 +79,23 @@ public class DatabasePlaceAdapter {
 
         return id;
     }
+
+    public long updateRow(int id, String name, String description) {
+        ContentValues rowUpdate = new ContentValues();
+        rowUpdate.put(DBConstants.PLACE_NAME, name);
+        rowUpdate.put(DBConstants.PLACE_DESCRIPTION, description);
+        return db.update(DBConstants.PLACESTABLE, rowUpdate, "Id=" + String.valueOf(id), null);
+    }
+
+    public String getColumnContent(String columnName, long id) {
+        String columnContent = "";
+        Cursor cursor;
+        cursor = db.rawQuery("SELECT " + columnName + " FROM " + DBConstants.PLACESTABLE + " WHERE " + DBConstants.ID_PLACE + " = ?", new String[]{String.valueOf(id)});
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            columnContent = cursor.getString(cursor.getColumnIndex(columnName));
+        }
+        return columnContent;
+
+    }
 }
