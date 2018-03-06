@@ -9,10 +9,13 @@
     <string name="amount_string">Ilość</string>
     <string name="dose_string">Dawka</string>
     <string name="place_string">Miejsce</string>
-    <string name="description_sting">Opis</string>
+    <string name="description_string">Opis</string>
     <string name="search_string">Szukaj</string>
     <string name="delete_string">Usuń</string>
     <string name="form_string">Forma</string>
-    <string name="purpose_string">Przeznaczenie</string>
+    <string name="purpose_string">Wskazanie</string>
+    <string name="update_string">AKTUALIZUJ</string>
+    <string name="med_name_string">Nazwa leku</string>
+    <string name="place_name_string">Nazwa miejsca</string>
 
 </resources>

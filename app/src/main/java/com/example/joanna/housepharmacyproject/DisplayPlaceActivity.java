@@ -55,7 +55,7 @@ public class DisplayPlaceActivity extends Toolbar {
         RecyclerViewClickListener listener = (view, position, id) -> {
             Intent intent = new Intent(DisplayPlaceActivity.this, UpdatePlaceActivity.class);
             Bundle bundle = new Bundle();
-            bundle.putInt("Id", id);
+            bundle.putString("Id", String.valueOf(id));
             intent.putExtras(bundle);
             startActivity(intent);
         };

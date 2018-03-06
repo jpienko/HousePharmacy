@@ -78,7 +78,7 @@ public class MedAdapter extends RecyclerView.Adapter<MedAdapter.ViewHolder> {
 
         @Override
         public void onClick(View view) {
-            listener.onClick(view,getAdapterPosition(),Integer.parseInt(tvId.getText().toString()));
+            listener.onClick(view,getAdapterPosition(),tvId.getText().toString());
         }
     }
 }

@@ -7,230 +7,256 @@
     android:orientation="horizontal"
     tools:ignore="ExtraText">
     tools:context="com.example.joanna.housepharmacyproject.UpdateMedActivity">
+
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-        />
+        layout="@layout/toolbar" />
 
-    <LinearLayout
-
-        android:id="@+id/layout1"
+    <TextView
+        android:id="@+id/txtName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@color/backMist"
-        android:orientation="vertical"
-        android:layout_above="@id/bUpdateMed"
-        android:layout_marginBottom="20dp">
+        android:layout_alignBaseline="@id/etNameUpdate"
+        android:layout_marginStart="10dp"
+        android:text="@string/med_name_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text=""
-            android:textSize="21sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:gravity="bottom"
-            android:text="Nazwa leku"
-            android:textSize="@dimen/tvUpdate"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="@string/dose_string"
-            android:textSize="@dimen/tvUpdate"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="@string/amount_string"
-            android:textSize="@dimen/tvUpdate"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="@string/place_string"
-            android:textSize="@dimen/tvUpdate"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout2"
-        android:layout_width="145dp"
+    <TextView
+        android:id="@+id/txtDose"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="3dp"
-        android:layout_toEndOf="@id/layout1"
-        android:background="@color/backMist"
-        android:orientation="vertical"
-        android:layout_above="@id/bUpdateMed"
-        android:layout_marginBottom="20dp">
+        android:layout_alignBaseline="@id/etDoseUpdate"
+        android:layout_marginStart="10dp"
+        android:text="@string/dose_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtForm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/etFormUpdate"
+        android:layout_marginStart="10dp"
+        android:text="@string/form_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/etAmountUpdate"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:text="@string/amount_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtPurpose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/etPurposeUpdate"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:text="@string/purpose_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtPlace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/etPlaceUpdate"
+        android:layout_marginStart="10dp"
+        android:text="@string/place_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
 
 
-        <TextView
-            android:id="@+id/tvCurrent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Obecnie"
-            android:textSize="21sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark"
-            />
+    <TextView
+        android:id="@+id/tvCurrent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/tvChange"
+        android:layout_alignStart="@id/tvNameUpdate"
+        android:gravity="center"
+        android:paddingStart="10dp"
+        android:text="Obecnie"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        tools:ignore="RtlSymmetry" />
 
-        <TextView
+    <TextView
 
-            android:id="@+id/tvNameUpdate"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:gravity="bottom"
-            android:text="@string/name_string"
-            android:textStyle="bold"
-            android:textSize="@dimen/tvUpdate"
-            android:textColor="@color/colorPrimaryDark"
-            />
+        android:id="@+id/tvNameUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/etNameUpdate"
+        android:layout_marginStart="30dp"
+        android:layout_toEndOf="@id/txtName"
+        android:text="@string/med_name_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvDoseUpdate"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="@string/dose_string"
-            android:textStyle="bold"
-            android:textSize="@dimen/tvUpdate"
-            android:textColor="@color/colorPrimaryDark"
-            />
+    <TextView
+        android:id="@+id/tvDoseUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/etDoseUpdate"
+        android:layout_alignStart="@id/tvNameUpdate"
+        android:text="@string/dose_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvAmountUpdate"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="@string/amount_string"
-            android:textStyle="bold"
-            android:textSize="@dimen/tvUpdate"
-            android:textColor="@color/colorPrimaryDark"
-            />
+    <TextView
+        android:id="@+id/tvFormUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/etFormUpdate"
+        android:layout_alignStart="@id/tvDoseUpdate"
+        android:text="@string/form_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvPlaceUpdate"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:text="@string/place_string"
-            android:textStyle="bold"
-            android:textSize="@dimen/tvUpdate"
-            android:textColor="@color/colorPrimaryDark"
-            />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/tvAmountUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/etAmountUpdate"
+        android:layout_alignStart="@id/tvFormUpdate"
+        android:text="@string/amount_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
 
-    <LinearLayout
-        android:id="@+id/layout3"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvPurposeUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/etPurposeUpdate"
+        android:layout_alignStart="@id/tvAmountUpdate"
+        android:text="@string/purpose_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvPlaceUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/etPlaceUpdate"
+        android:layout_alignStart="@id/tvPurposeUpdate"
+        android:text="@string/place_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/tvChange"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="3dp"
-        android:layout_marginEnd="5dp"
-        android:layout_toEndOf="@id/layout2"
-        android:background="@color/backMist"
-        android:orientation="vertical"
-        android:layout_above="@id/bUpdateMed"
-        android:layout_marginBottom="20dp"
-        >
+        android:layout_below="@id/toolbar"
+        android:layout_marginEnd="55dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="Zmień"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="21sp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvChange"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Zmień"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="21sp"
-            android:textStyle="bold" />
+    <EditText
+        android:id="@+id/etNameUpdate"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvChange"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:hint="@string/name_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/etNameUpdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:hint="@string/name_string"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/tvUpdate" />
+    <EditText
+        android:id="@+id/etDoseUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/etNameUpdate"
+        android:layout_below="@id/etNameUpdate"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:hint="@string/dose_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/etDoseUpdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:gravity="center"
-            android:hint="@string/dose_string"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/tvUpdate" />
+    <EditText
+        android:id="@+id/etFormUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/etNameUpdate"
+        android:layout_below="@id/etDoseUpdate"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:hint="@string/form_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/etAmountUpdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:gravity="center"
-            android:hint="@string/amount_string"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/tvUpdate" />
+    <EditText
+        android:id="@+id/etAmountUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/etFormUpdate"
+        android:layout_below="@id/etFormUpdate"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:hint="@string/amount_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/etPlaceUpdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:gravity="center"
-            android:hint="@string/place_string"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/tvUpdate" />
-    </LinearLayout>
+    <EditText
+        android:id="@+id/etPurposeUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/etNameUpdate"
+        android:layout_below="@id/etAmountUpdate"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:hint="@string/purpose_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etPlaceUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/etPurposeUpdate"
+        android:layout_below="@id/etPurposeUpdate"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:hint="@string/place_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tvUpdate"
+        android:textStyle="bold" />
+
 
     <Button
         android:id="@+id/bUpdateMed"
@@ -239,10 +265,10 @@
         android:layout_above="@id/bDeletePlaceUpdate"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="Aktualizuj lek"
+        android:background="@color/colorPrimary"
 
-        android:textColor="@android:color/white"
-        android:background="@color/colorPrimary"/>
+        android:text="@string/update_string"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/bDeletePlaceUpdate"
@@ -253,9 +279,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
         android:text="@string/delete_string"
-        android:textColor="@android:color/white"
-        android:background="@color/colorPrimary"/>
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>
 

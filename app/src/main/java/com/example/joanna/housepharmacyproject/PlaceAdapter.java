@@ -68,11 +68,12 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
             super(itemView);
             ButterKnife.bind(this, itemView);
             this.listener = listener;
+            goToUpdatePlace.setOnClickListener(this);
             goToContent.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-            listener.onClick(view, getAdapterPosition(), Integer.parseInt(tvPlaceName.getText().toString()));
+            listener.onClick(view, getAdapterPosition(), tvPlaceName.getText().toString());
         }
     }}

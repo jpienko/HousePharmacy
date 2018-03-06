@@ -14,7 +14,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="11dp"
         android:layout_toEndOf="@+id/Name"
-        android:text="Nazwa miejsca"
+        android:text="@string/place_name_string"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/tvPlaceName"
         android:layout_below="@+id/tvPlaceName"
-        android:text="@string/description_sting"
+        android:text="@string/description_string"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/Name"
         android:layout_below="@+id/Name"
-        android:text="@string/description_sting"
+        android:text="@string/description_string"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -18,7 +17,6 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
-
     <TextView
         android:id="@+id/tvId"
         android:layout_width="wrap_content"
@@ -30,7 +28,6 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
-
     <TextView
         android:id="@+id/tvDose"
         android:layout_width="wrap_content"
@@ -41,7 +38,6 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
-
     <TextView
         android:id="@+id/tvForm"
         android:layout_width="wrap_content"
@@ -52,7 +48,6 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
-
     <TextView
         android:id="@+id/tvAmount"
         android:layout_width="wrap_content"
@@ -63,7 +58,6 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
-
     <TextView
         android:id="@+id/tvPurpose"
         android:layout_width="wrap_content"
@@ -74,7 +68,6 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
-
     <TextView
         android:id="@+id/tvPlace"
         android:layout_width="wrap_content"
@@ -85,7 +78,6 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
-
     <TextView
         android:id="@+id/Name"
         android:layout_width="wrap_content"
@@ -98,8 +90,6 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
-
-
     <TextView
         android:id="@+id/Dose"
         android:layout_width="wrap_content"
@@ -110,7 +100,6 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
-
     <TextView
         android:id="@+id/Form"
         android:layout_width="wrap_content"
@@ -121,7 +110,6 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
-
     <TextView
         android:id="@+id/Amount"
         android:layout_width="wrap_content"
@@ -132,7 +120,6 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
-
     <TextView
         android:id="@+id/Purpose"
         android:layout_width="wrap_content"
@@ -143,7 +130,6 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
-
     <TextView
         android:id="@+id/Place"
         android:layout_width="wrap_content"
@@ -154,20 +140,18 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
-
     <Button
         android:id="@+id/bGoToUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/bDeleteMedFromList"
-        android:layout_alignBottom="@+id/bDeleteMedFromList"
-        android:layout_alignStart="@id/tvName"
+        android:layout_alignParentEnd="true"
         android:background="@color/colorPrimary"
-        android:text="AKTUALIZUJ"
+        android:text="@string/update_string"
         android:paddingLeft="20dp"
+        android:layout_marginEnd="45dp"
         android:paddingRight="20dp"
         android:textColor="@android:color/white" />
-
     <Button
         android:id="@+id/bDeleteMedFromList"
         android:layout_width="wrap_content"
@@ -178,7 +162,8 @@
         android:background="@color/colorPrimary"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
-        android:text="usuń"
+        android:text="@string/delete_string"
         android:textColor="@android:color/white" />
+
 
 </RelativeLayout>

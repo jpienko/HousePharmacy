@@ -36,7 +36,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:gravity="center"
-            android:hint="@string/description_sting"
+            android:hint="@string/description_string"
             android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold" />
 

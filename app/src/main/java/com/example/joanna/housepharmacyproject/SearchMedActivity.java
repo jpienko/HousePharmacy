@@ -75,7 +75,7 @@ public class SearchMedActivity extends Toolbar {
         RecyclerViewClickListener listener = (view, position, id) -> {
             Intent intent = new Intent(SearchMedActivity.this, UpdateMedActivity.class);
             Bundle bundle = new Bundle();
-            bundle.putInt("Id", id);
+            bundle.putInt("Id", Integer.parseInt(id));
             intent.putExtras(bundle);
             startActivity(intent);
         };
