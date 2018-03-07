@@ -5,55 +5,50 @@
     android:orientation="vertical"
 
     tools:context="com.example.joanna.housepharmacyproject.AddPlaceActivity">
+
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"
+        layout="@layout/toolbar" />
+
+
+    <EditText
+        android:id="@+id/etPlaceName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:hint="@string/name_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+
         />
 
-
-
-        <EditText
-            android:id="@+id/etPlaceName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:layout_centerInParent="true"
-            android:hint="@string/name_string"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
-
-            />
-
-        <EditText
-            android:id="@+id/etDescription"
-            android:layout_below="@id/etPlaceName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:gravity="center"
-            android:hint="@string/description_string"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold" />
-
-
-
-
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etPlaceName"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:hint="@string/description_string"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/bAddPlace"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/roundedbutton"
         android:text="Dodaj miejsce"
-        android:layout_alignParentBottom="true"
         android:textColor="@android:color/white" />
 
 </RelativeLayout>

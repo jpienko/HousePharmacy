@@ -11,12 +11,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="110dp"
-        android:layout_toEndOf="@id/Name"
         android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/Name"
         android:text="@string/name_string"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/tvId"
         android:layout_width="wrap_content"
@@ -28,6 +29,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/tvDose"
         android:layout_width="wrap_content"
@@ -38,16 +40,18 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/tvForm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvDose"
         android:layout_alignStart="@+id/tvDose"
+        android:layout_below="@+id/tvDose"
         android:text="@string/form_string"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/tvAmount"
         android:layout_width="wrap_content"
@@ -58,6 +62,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/tvPurpose"
         android:layout_width="wrap_content"
@@ -68,6 +73,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/tvPlace"
         android:layout_width="wrap_content"
@@ -78,6 +84,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/Name"
         android:layout_width="wrap_content"
@@ -90,6 +97,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/Dose"
         android:layout_width="wrap_content"
@@ -100,6 +108,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/Form"
         android:layout_width="wrap_content"
@@ -110,6 +119,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/Amount"
         android:layout_width="wrap_content"
@@ -120,6 +130,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/Purpose"
         android:layout_width="wrap_content"
@@ -130,6 +141,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/Place"
         android:layout_width="wrap_content"
@@ -140,18 +152,20 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tvDisplay"
         android:textStyle="bold" />
+
     <Button
         android:id="@+id/bGoToUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/bDeleteMedFromList"
         android:layout_alignParentEnd="true"
-        android:background="@color/colorPrimary"
-        android:text="@string/update_string"
-        android:paddingLeft="20dp"
         android:layout_marginEnd="45dp"
+        android:background="@drawable/roundedbutton"
+        android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:text="@string/update_string"
         android:textColor="@android:color/white" />
+
     <Button
         android:id="@+id/bDeleteMedFromList"
         android:layout_width="wrap_content"
@@ -159,7 +173,7 @@
         android:layout_alignStart="@+id/Place"
         android:layout_below="@+id/tvPlace"
         android:layout_marginTop="19dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/roundedbutton"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
         android:text="@string/delete_string"

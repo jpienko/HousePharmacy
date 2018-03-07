@@ -17,5 +17,11 @@
     <string name="update_string">AKTUALIZUJ</string>
     <string name="med_name_string">Nazwa leku</string>
     <string name="place_name_string">Nazwa miejsca</string>
+    <string name="change_string">Zmień</string>
+    <string name="current_string">Obecnie</string>
+    <string name="yes_string">TAK</string>
+    <string name="no_string">NIE</string>
+    <string name="place_dialog_string">Czy chcesz usunąć miejsce wraz z zawartością? .\n Jeżeli wybierzesz \"NIE\", zawartość zostanie przeniesiona do \"none\"</string>
+    <string name="delete_dialog_string">Czy na pewno chcesz usunąć?</string>
 
 </resources>

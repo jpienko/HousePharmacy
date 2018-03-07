@@ -5,18 +5,18 @@
     android:layout_height="match_parent"
 
     tools:context="com.example.joanna.housepharmacyproject.DisplayMedActivity">
+
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-        />
+        layout="@layout/toolbar" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recView"
-        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
+        android:layout_below="@id/toolbar"
         android:layout_marginTop="10dp"
+        android:clipToPadding="false"
         android:paddingBottom="55dp">
 
     </android.support.v7.widget.RecyclerView>

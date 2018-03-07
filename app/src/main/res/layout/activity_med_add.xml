@@ -39,17 +39,17 @@
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/etForm"
+    <Spinner
+        android:id="@+id/spForm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:gravity="center"
-        android:hint="@string/form_string"
-        android:textColor="@color/colorPrimaryDark"
-        android:textStyle="bold" />
+
+        />
+
 
     <EditText
         android:id="@+id/etAmount"
@@ -96,7 +96,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="30dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/roundedbutton"
         android:text="Dodaj lek"
         android:textColor="@android:color/white" />
 
