@@ -53,11 +53,9 @@ public class AddMedActivity extends Toolbar {
     @OnClick(R.id.bAddMed)
     void Click() {
 
-        if(name.getText().equals(""))
-        {
+        if (name.getText().equals("")) {
             Toast.makeText(AddMedActivity.this, "Musisz podać nazwę leku!", Toast.LENGTH_LONG).show();
-        }
-        else {
+        } else {
             addMed();
         }
     }
@@ -67,9 +65,9 @@ public class AddMedActivity extends Toolbar {
         dAPlace = new DatabasePlaceAdapter(this);
 
         dA.openDB();
-        checkIfFilled(purpose,"brak");
-        checkIfFilled(dose,"brak");
-        checkIfFilled(amount,"0");
+        checkIfFilled(purpose, "brak");
+        checkIfFilled(dose, "brak");
+        checkIfFilled(amount, "0");
 
         if (place.getText().toString().equals("")) {
             place.setText("brak");
@@ -92,6 +90,7 @@ public class AddMedActivity extends Toolbar {
             editText.setText(value);
         }
     }
+
     private void spinnerForm() {
 
         dAForm = new DatabaseFormAdapter(this);
@@ -107,6 +106,9 @@ public class AddMedActivity extends Toolbar {
         spForm.setAdapter(adapter);
     }
 
+    private void spinnerPlace() {
+
+    }
     private void ClearEditText() {
         name.getText().clear();
         amount.getText().clear();
