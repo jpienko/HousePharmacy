@@ -37,7 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(DBConstants.PLACE_DESCRIPTION,"Leki nieprzypisane do żadnego miejsca");
         db.insert(DBConstants.PLACESTABLE,null,cv);
          cv.clear();
-        String[] forms = {"tabletki","czopki","maść","syrop","zawiesina","inne"};
+        String[] forms = {"brak","tabletki","czopki","maść","syrop","zawiesina","inne"};
 
         for(int i=0; i<forms.length;i++) {
             cv.put(DBConstants.FORM_NAME, forms[i]);

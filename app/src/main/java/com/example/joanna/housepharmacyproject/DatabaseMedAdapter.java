@@ -41,7 +41,7 @@ public class DatabaseMedAdapter {
     }
 
     //INSERT
-    public long addData(String name, int amount, double dose, int place) {
+    public long addData(String name, int amount, String dose, int place) {
         try {
             ContentValues cv = new ContentValues();
             cv.put(DBConstants.NAME, name);
@@ -67,7 +67,7 @@ public class DatabaseMedAdapter {
 
     }
 
-    public long updateRow(int id, String name, int amount, double dose, String place) {
+    public long updateRow(int id, String name, int amount, String dose, String place) {
         ContentValues rowUpdate = new ContentValues();
         rowUpdate.put(DBConstants.NAME, name);
         rowUpdate.put(DBConstants.AMOUNT, amount);

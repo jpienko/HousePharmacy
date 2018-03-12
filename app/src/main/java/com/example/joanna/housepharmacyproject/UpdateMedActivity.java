@@ -46,7 +46,7 @@ public class UpdateMedActivity extends Toolbar {
         setContentView(R.layout.activity_update_med);
         ButterKnife.bind(this);
         setTextView();
-        initToolBar("Aktualizuj lek",1);
+        initToolBar("Aktualizuj lek",R.string.instruction_update);
     }
 
     @OnClick(R.id.bUpdateMed)
@@ -62,7 +62,7 @@ public class UpdateMedActivity extends Toolbar {
         if (id != 0) {
             didItWork = dA.updateRow(id, name,
                     Integer.parseInt(amount),
-                    Double.parseDouble(dose.replaceAll(",", ".")),
+                    dose,
                     place);
         } else {
             didItWork = 0;

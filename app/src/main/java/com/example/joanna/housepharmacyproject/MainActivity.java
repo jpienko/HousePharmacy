@@ -48,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(in);
     }
 
+    @OnClick(R.id.bHelp)
+    void onClickHelp(View view) {
+        Intent in = new Intent(MainActivity.this, HelpActivity.class);
+        startActivity(in);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

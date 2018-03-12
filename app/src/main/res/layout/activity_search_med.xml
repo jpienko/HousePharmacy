@@ -18,18 +18,36 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
-        android:background="@color/backMist"
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/etSearch"
+            android:id="@+id/etSearchByName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:gravity="center"
-            android:hint="@string/search_string"
+            android:hint="@string/name_string"
             android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold" />
+        <EditText
+            android:id="@+id/etSearchByForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:hint="@string/form_string"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+        <EditText
+            android:id="@+id/etSearchByPurpose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:hint="@string/purpose_string"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+
 
 
         <Button

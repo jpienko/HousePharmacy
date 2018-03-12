@@ -4,4 +4,7 @@
     <dimen name="button_text_size">18sp</dimen>
     <dimen name="tvAdd">15sp</dimen>
     <dimen name="tvUpdate">19sp</dimen>
+    <dimen name="tvSpinner">20sp</dimen>
+    <dimen name="tvDialog">19sp</dimen>
+
 </resources>

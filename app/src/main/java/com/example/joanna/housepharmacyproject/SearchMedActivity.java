@@ -23,7 +23,7 @@ public class SearchMedActivity extends Toolbar {
     ArrayList<Meds> meds = new ArrayList<>();
 
 
-    @BindView(R.id.etSearch)
+    @BindView(R.id.etSearchByName)
     EditText etSearch;
 
     @BindView(R.id.recViewSearch)
@@ -43,7 +43,7 @@ public class SearchMedActivity extends Toolbar {
         ButterKnife.bind(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        initToolBar("Szukaj",2);
+        initToolBar("Szukaj",R.string.instruction_search);
         goToUpdate();
     }
 

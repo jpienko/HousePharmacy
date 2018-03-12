@@ -273,13 +273,25 @@
         android:id="@+id/bDeletePlaceUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@id/bBackUpdateMed"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/roundedbutton"
         android:text="@string/delete_string"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/bBackUpdateMed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/roundedbutton"
+        android:text="WYJDŹ POZOSTAWIAJĄC BEZ ZMIAN"
         android:textColor="@android:color/white" />
 
 </RelativeLayout>

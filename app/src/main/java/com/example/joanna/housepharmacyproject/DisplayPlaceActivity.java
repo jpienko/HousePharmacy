@@ -30,7 +30,7 @@ public class DisplayPlaceActivity extends Toolbar {
         recViewPlace.setLayoutManager(new LinearLayoutManager(this));
         recViewPlace.setItemAnimator(new DefaultItemAnimator());
         goToUpdatePlace();
-        initToolBar("Lista miejsc", 1);
+        initToolBar("Lista miejsc", R.string.instruction_display_place);
     }
     private void retrievePlace() {
         places.clear();

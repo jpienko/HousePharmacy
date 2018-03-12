@@ -130,7 +130,7 @@
         android:id="@+id/bDeletePlaceUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@id/bBackUpdatePlace"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -138,6 +138,18 @@
         android:background="@drawable/roundedbutton"
         android:text="@string/delete_string"
         android:textColor="@android:color/white" />
+    <Button
+        android:id="@+id/bBackUpdatePlace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="WYJDŹ POZOSTAWIAJĄC BEZ ZMIAN"
+        android:textColor="@android:color/white"
+        android:background="@drawable/roundedbutton"
+        />
 
 </RelativeLayout>
 

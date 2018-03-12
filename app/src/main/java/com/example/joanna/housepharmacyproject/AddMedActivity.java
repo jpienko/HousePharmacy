@@ -38,6 +38,9 @@ public class AddMedActivity extends Toolbar {
     @BindView(R.id.spForm)
     Spinner spForm;
 
+    @BindView(R.id.etPurpose)
+    EditText purpose;
+
     @OnClick(R.id.bAddMed)
     void Click() {
         dA = new DatabaseMedAdapter(this);
@@ -55,7 +58,7 @@ public class AddMedActivity extends Toolbar {
         }
         long didItWork = dA.addData(name.getText().toString(),
                 Integer.parseInt(amount.getText().toString()),
-                Double.parseDouble(dose.getText().toString().replaceAll(",", ".")),
+                dose.getText().toString(),
                 dAPlace.getPlaceId(place.getText().toString()));
         if (didItWork > 0) {
             Toast.makeText(AddMedActivity.this, "Succsess", Toast.LENGTH_LONG).show();
@@ -72,7 +75,7 @@ public class AddMedActivity extends Toolbar {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_med_add);
         ButterKnife.bind(this);
-        initToolBar("Dodaj lek", R.string.instruction_add_place);
+        initToolBar("Dodaj lek", R.string.instruction_add);
         spinnerForm();
     }
 
@@ -96,6 +99,9 @@ public class AddMedActivity extends Toolbar {
         amount.getText().clear();
         dose.getText().clear();
         place.getText().clear();
+        spForm.setAdapter(adapter);
+        purpose.getText().clear();
+
 
     }
 

@@ -35,7 +35,7 @@ public class DisplayMedActivity extends Toolbar {
         recView.setLayoutManager(new LinearLayoutManager(this));
         recView.setItemAnimator(new DefaultItemAnimator());
         goToUpdateMed();
-        initToolBar("Lista leków", 1);
+        initToolBar("Lista leków", R.string.instruction_display);
     }
 
     private void retrieveMed() {
