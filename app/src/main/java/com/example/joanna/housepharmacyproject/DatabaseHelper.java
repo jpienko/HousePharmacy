@@ -33,7 +33,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private void placeTableStartContent(SQLiteDatabase db) {
         ContentValues cv = new ContentValues();
-        cv.put(DBConstants.PLACE_NAME, "none");
+        cv.put(DBConstants.PLACE_NAME, "brak");
         cv.put(DBConstants.PLACE_DESCRIPTION,"Leki nieprzypisane do żadnego miejsca");
         db.insert(DBConstants.PLACESTABLE,null,cv);
          cv.clear();

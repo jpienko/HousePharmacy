@@ -41,20 +41,38 @@ public class AddMedActivity extends Toolbar {
     @BindView(R.id.etPurpose)
     EditText purpose;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_med_add);
+        ButterKnife.bind(this);
+        initToolBar("Dodaj lek", R.string.instruction_add);
+        spinnerForm();
+    }
+
     @OnClick(R.id.bAddMed)
     void Click() {
+
+        if(name.getText().equals(""))
+        {
+            Toast.makeText(AddMedActivity.this, "Musisz podać nazwę leku!", Toast.LENGTH_LONG).show();
+        }
+        else {
+            addMed();
+        }
+    }
+
+    private void addMed() {
         dA = new DatabaseMedAdapter(this);
         dAPlace = new DatabasePlaceAdapter(this);
 
         dA.openDB();
-        if (dose.getText().toString().equals("")) {
-            dose.setText("0");
-        }
+        checkIfFilled(purpose,"brak");
+        checkIfFilled(dose,"brak");
+        checkIfFilled(amount,"0");
+
         if (place.getText().toString().equals("")) {
-            place.setText("none");
-        }
-        if (amount.getText().toString().equals("")) {
-            amount.setText("0");
+            place.setText("brak");
         }
         long didItWork = dA.addData(name.getText().toString(),
                 Integer.parseInt(amount.getText().toString()),
@@ -67,18 +85,13 @@ public class AddMedActivity extends Toolbar {
         }
         ClearEditText();
         dA.closeDB();
-
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_med_add);
-        ButterKnife.bind(this);
-        initToolBar("Dodaj lek", R.string.instruction_add);
-        spinnerForm();
+    private void checkIfFilled(EditText editText, String value) {
+        if (editText.getText().toString().equals("")) {
+            editText.setText(value);
+        }
     }
-
     private void spinnerForm() {
 
         dAForm = new DatabaseFormAdapter(this);
