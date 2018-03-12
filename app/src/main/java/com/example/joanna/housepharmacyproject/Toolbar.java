@@ -32,7 +32,7 @@ abstract class Toolbar extends AppCompatActivity {
 
     }
 
-    public void initToolBar(String name, int text) {
+    public void initToolBar(String name, int text, Class previousActivity) {
         this.textContent = getResources().getString(text);
         toolbar.setNavigationIcon(R.drawable.ic_back_arrow);
         toolbar.setTitle(name);
@@ -40,7 +40,7 @@ abstract class Toolbar extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(activity, MainActivity.class);
+                Intent in = new Intent(activity, previousActivity);
                 startActivity(in);
             }
         });
@@ -60,7 +60,7 @@ abstract class Toolbar extends AppCompatActivity {
         View mView = getLayoutInflater().inflate(R.layout.dialog_help, null);
         mBuilder.setView(mView);
         final AlertDialog dialog = mBuilder.create();
-        TextView tvHelp = (TextView) mView.findViewById(R.id.tvHelp) ;
+        TextView tvHelp = (TextView) mView.findViewById(R.id.tvHelp);
         tvHelp.setText(textContent);
         Button bHelp = (Button) mView.findViewById(R.id.bBackHelp);
         bHelp.setOnClickListener(new View.OnClickListener() {
@@ -76,5 +76,24 @@ abstract class Toolbar extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void getActivityNameToBudle(Bundle bundle) {
+        bundle.putString("ClassName", this.getClass().getSimpleName());
+    }
+
+    public Class setBack() {
+        Bundle bundle = getIntent().getExtras();
+        Class c = MainActivity.class;
+        if (bundle != null) {
+            String className = bundle.getString("ClassName");
+
+            try {
+                c = Class.forName("com.example.joanna.housepharmacyproject." + className);
+                return c;
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return c;
+    }
 
 }

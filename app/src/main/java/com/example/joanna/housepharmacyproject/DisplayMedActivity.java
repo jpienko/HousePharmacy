@@ -35,7 +35,7 @@ public class DisplayMedActivity extends Toolbar {
         recView.setLayoutManager(new LinearLayoutManager(this));
         recView.setItemAnimator(new DefaultItemAnimator());
         goToUpdateMed();
-        initToolBar("Lista leków", R.string.instruction_display);
+        initToolBar("Lista leków", R.string.instruction_display,setBack());
     }
 
     private void retrieveMed() {
@@ -69,6 +69,7 @@ public class DisplayMedActivity extends Toolbar {
             Intent intent = new Intent(DisplayMedActivity.this, UpdateMedActivity.class);
             Bundle bundle = new Bundle();
             bundle.putInt("Id", Integer.parseInt(id));
+            getActivityNameToBudle(bundle);
             intent.putExtras(bundle);
             startActivity(intent);
         };

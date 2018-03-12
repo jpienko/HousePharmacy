@@ -46,7 +46,8 @@ public class UpdateMedActivity extends Toolbar {
         setContentView(R.layout.activity_update_med);
         ButterKnife.bind(this);
         setTextView();
-        initToolBar("Aktualizuj lek",R.string.instruction_update);
+
+        initToolBar("Aktualizuj lek",R.string.instruction_update,setBack());
     }
 
     @OnClick(R.id.bUpdateMed)

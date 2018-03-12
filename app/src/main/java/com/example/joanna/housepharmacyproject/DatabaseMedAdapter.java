@@ -10,45 +10,34 @@ import android.database.sqlite.SQLiteDatabase;
  * Created by Joanna on 2018-02-16.
  */
 
-public class DatabaseMedAdapter {
+public class DatabaseMedAdapter  {
 
     private Context context;
     private SQLiteDatabase db;
     private DatabaseHelper dbHelper;
 
     DatabaseMedAdapter(Context context) {
+        super();
         this.context = context;
         dbHelper = new DatabaseHelper(context);
     }
-
-    public DatabaseMedAdapter openDB() {
-        try {
-            db = dbHelper.getWritableDatabase();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return this;
+    public void openDB() throws SQLException {
+        db = dbHelper.getWritableDatabase();
     }
 
-    public void closeDB() {
-        try {
-            dbHelper.close();
+    public void closeDB() throws SQLException {
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        dbHelper.close();
     }
 
-    //INSERT
     public long addData(String name, int amount, String dose, String form, String purpose, int place) {
         try {
             ContentValues cv = new ContentValues();
             cv.put(DBConstants.NAME, name);
             cv.put(DBConstants.AMOUNT, amount);
             cv.put(DBConstants.DOSE, dose);
-            cv.put(DBConstants.FORM,form);
-            cv.put(DBConstants.PURPOSE,purpose);
+            cv.put(DBConstants.FORM, form);
+            cv.put(DBConstants.PURPOSE, purpose);
             cv.put(DBConstants.PLACE, place);
             return db.insert(DBConstants.MEDSTABLE, null, cv);
 

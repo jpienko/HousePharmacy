@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
 /**
@@ -17,7 +16,7 @@ public class DatabasePlaceAdapter {
     SQLiteDatabase db;
     DatabaseHelper dbHelper;
 
-    public DatabasePlaceAdapter(Context context) {
+    DatabasePlaceAdapter(Context context) {
         this.context = context;
         dbHelper = new DatabaseHelper(context);
         try {
@@ -26,28 +25,21 @@ public class DatabasePlaceAdapter {
             Log.e("DatabasePlaceAdapter", "SQLException on openning database " + e.getMessage());
             e.printStackTrace();
         }
-
     }
-
     public void openDB() throws SQLException {
         db = dbHelper.getWritableDatabase();
     }
 
-    public void closeDB() {
-        try {
-            dbHelper.close();
+    public void closeDB() throws SQLException {
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        dbHelper.close();
     }
-
-    public long addPlace(String place,String description) {
+    public long addPlace(String place, String description) {
         try {
             dbHelper.onCreate(db);
             ContentValues cv = new ContentValues();
             cv.put(DBConstants.PLACE_NAME, place);
-            cv.put(DBConstants.PLACE_DESCRIPTION,description);
+            cv.put(DBConstants.PLACE_DESCRIPTION, description);
             return db.insert(DBConstants.PLACESTABLE, null, cv);
         } catch (Exception exp) {
             exp.printStackTrace();

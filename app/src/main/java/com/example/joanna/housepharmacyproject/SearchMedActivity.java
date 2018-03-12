@@ -43,8 +43,7 @@ public class SearchMedActivity extends Toolbar {
         ButterKnife.bind(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        initToolBar("Szukaj",R.string.instruction_search);
-        goToUpdate();
+        initToolBar("Szukaj",R.string.instruction_search,MainActivity.class);
     }
 
     public void showData() {
@@ -76,6 +75,7 @@ public class SearchMedActivity extends Toolbar {
             Intent intent = new Intent(SearchMedActivity.this, UpdateMedActivity.class);
             Bundle bundle = new Bundle();
             bundle.putInt("Id", Integer.parseInt(id));
+            getActivityNameToBudle(bundle);
             intent.putExtras(bundle);
             startActivity(intent);
         };

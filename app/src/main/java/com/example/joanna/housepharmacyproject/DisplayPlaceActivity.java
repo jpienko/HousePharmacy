@@ -30,7 +30,8 @@ public class DisplayPlaceActivity extends Toolbar {
         recViewPlace.setLayoutManager(new LinearLayoutManager(this));
         recViewPlace.setItemAnimator(new DefaultItemAnimator());
         goToUpdatePlace();
-        initToolBar("Lista miejsc", R.string.instruction_display_place);
+
+        initToolBar("Lista miejsc", R.string.instruction_display_place, setBack());
     }
     private void retrievePlace() {
         places.clear();
@@ -56,6 +57,7 @@ public class DisplayPlaceActivity extends Toolbar {
             Intent intent = new Intent(DisplayPlaceActivity.this, UpdatePlaceActivity.class);
             Bundle bundle = new Bundle();
             bundle.putString("Id", String.valueOf(id));
+            getActivityNameToBudle(bundle);
             intent.putExtras(bundle);
             startActivity(intent);
         };

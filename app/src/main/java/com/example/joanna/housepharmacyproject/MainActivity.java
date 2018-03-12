@@ -21,30 +21,45 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.bAdd)
     void onClickAdd(View view) {
         Intent in = new Intent(MainActivity.this, AddMedActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("ClassName", "MainActivity");
+        in.putExtras(bundle);
         startActivity(in);
     }
 
     @OnClick(R.id.bShow)
     void onClickShow(View view) {
         Intent in = new Intent(MainActivity.this, DisplayMedActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("ClassName", "MainActivity");
+        in.putExtras(bundle);
         startActivity(in);
     }
 
     @OnClick(R.id.bAddPl)
     void onClickAddPlace(View view) {
         Intent in = new Intent(MainActivity.this, AddPlaceActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("ClassName", "MainActivity");
+        in.putExtras(bundle);
         startActivity(in);
     }
 
     @OnClick(R.id.bShowPlace)
     void onClickShowPlace(View view) {
         Intent in = new Intent(MainActivity.this, DisplayPlaceActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("ClassName", "MainActivity");
+        in.putExtras(bundle);
         startActivity(in);
     }
 
     @OnClick(R.id.bSearch)
     void onClickSearch(View view) {
         Intent in = new Intent(MainActivity.this, SearchMedActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("ClassName", "MainActivity");
+        in.putExtras(bundle);
         startActivity(in);
     }
 

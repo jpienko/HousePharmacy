@@ -47,14 +47,15 @@ public class AddMedActivity extends Toolbar {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_med_add);
         ButterKnife.bind(this);
-        initToolBar("Dodaj lek", R.string.instruction_add);
+        initToolBar("Dodaj lek", R.string.instruction_add,MainActivity.class);
         spinnerForm();
+        spinnerPlace();
     }
 
     @OnClick(R.id.bAddMed)
     void Click() {
 
-        if (name.getText().equals("")) {
+        if (name.getText().toString().matches("")) {
             Toast.makeText(AddMedActivity.this, "Musisz podać nazwę leku!", Toast.LENGTH_LONG).show();
         } else {
             addMed();
@@ -86,7 +87,7 @@ public class AddMedActivity extends Toolbar {
     }
 
     private void checkIfFilled(EditText editText, String value) {
-        if (editText.getText().toString().equals("")) {
+        if (editText.getText().toString().matches("")) {
             editText.setText(value);
         }
     }
@@ -117,7 +118,7 @@ public class AddMedActivity extends Toolbar {
             placeList.add(name);
         }
         dAPlace.closeDB();
-        spForm.setAdapter(adapterPlace);
+        spPlace.setAdapter(adapterPlace);
     }
     private void ClearEditText() {
         name.getText().clear();

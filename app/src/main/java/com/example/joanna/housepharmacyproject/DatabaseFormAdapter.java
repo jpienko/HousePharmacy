@@ -18,38 +18,31 @@ public class DatabaseFormAdapter {
     SQLiteDatabase db;
     DatabaseHelper dbHelper;
 
-    public DatabaseFormAdapter(Context context) {
+
+    DatabaseFormAdapter(Context context) {
         this.context = context;
         dbHelper = new DatabaseHelper(context);
         try {
             openDB();
         } catch (SQLException e) {
-            Log.e("DatabasePlaceAdapter", "SQLException on openning database " + e.getMessage());
+            Log.e("DatabaseFormAdapter", "SQLException on openning database " + e.getMessage());
             e.printStackTrace();
         }
-
     }
-
-
-    public Cursor getAllForms() {
-        String[] columns = {DBConstants.ID_FORM,DBConstants.FORM_NAME};
-
-        return db.query(DBConstants.FORMSTABLE, columns, null, null, null, null, null);
-    }
-
-
     public void openDB() throws SQLException {
         db = dbHelper.getWritableDatabase();
     }
 
-    public void closeDB() {
-        try {
-            dbHelper.close();
+    public void closeDB() throws SQLException {
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        dbHelper.close();
     }
+    public Cursor getAllForms() {
+        String[] columns = {DBConstants.ID_FORM, DBConstants.FORM_NAME};
+
+        return db.query(DBConstants.FORMSTABLE, columns, null, null, null, null, null);
+    }
+
 
 }
 

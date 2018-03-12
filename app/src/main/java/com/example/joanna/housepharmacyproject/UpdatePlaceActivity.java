@@ -30,7 +30,7 @@ public class UpdatePlaceActivity extends Toolbar {
         setContentView(R.layout.activity_update_place);
         ButterKnife.bind(this);
         setTextView();
-        initToolBar("Aktualizuj miejsce", R.string.instruction_update_place);
+        initToolBar("Aktualizuj miejsce", R.string.instruction_update_place, setBack());
     }
 
     @OnClick(R.id.bUpdatePlace)

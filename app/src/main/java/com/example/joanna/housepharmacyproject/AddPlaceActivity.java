@@ -23,12 +23,12 @@ public class AddPlaceActivity extends Toolbar {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_add);
         ButterKnife.bind(this);
-        initToolBar("Dodaj miejsce", R.string.instruction_add_place);
+        initToolBar("Dodaj miejsce", R.string.instruction_add_place,MainActivity.class);
     }
 
     @OnClick(R.id.bAddPlace)
     void Click() {
-        if (name.getText().equals("")) {
+        if (name.getText().toString().matches("")) {
             Toast.makeText(AddPlaceActivity.this, "Musisz podać nazwę miejsca!", Toast.LENGTH_LONG).show();
         } else {
             addPlace();
@@ -38,7 +38,7 @@ public class AddPlaceActivity extends Toolbar {
     private void addPlace() {
         databasePlaceAdapter = new DatabasePlaceAdapter(this);
         databasePlaceAdapter.openDB();
-        if (description.getText().toString().equals("")) {
+        if (description.getText().toString().matches("")) {
             description.setText("brak");
         }
 

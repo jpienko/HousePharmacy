@@ -12,7 +12,7 @@ public class HelpActivity extends Toolbar {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
         ButterKnife.bind(this);
-        initToolBar("Pomoc",R.string.instruction_update);
+        initToolBar("Pomoc",R.string.instruction_update,MainActivity.class);
 
     }
 }
