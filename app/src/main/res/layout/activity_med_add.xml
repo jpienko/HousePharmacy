@@ -76,17 +76,16 @@
         android:textStyle="bold" />
 
 
-    <EditText
-        android:id="@+id/etPlace"
+    <Spinner
+        android:id="@+id/spPlace"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:gravity="center"
-        android:hint="@string/place_string"
-        android:textColor="@color/colorPrimaryDark"
-        android:textStyle="bold" />
+
+        />
 
 
     <Button

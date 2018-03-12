@@ -19,7 +19,8 @@ public class AddMedActivity extends Toolbar {
     DatabaseMedAdapter dA;
     DatabasePlaceAdapter dAPlace;
     DatabaseFormAdapter dAForm;
-    ArrayAdapter<String> adapter;
+    ArrayAdapter<String> adapterForm;
+    ArrayAdapter<String> adapterPlace;
     ArrayList<String> formList;
     ArrayList<String> placeList;
 
@@ -32,8 +33,8 @@ public class AddMedActivity extends Toolbar {
     @BindView(R.id.etDose)
     EditText dose;
 
-    @BindView(R.id.etPlace)
-    EditText place;
+    @BindView(R.id.spPlace)
+    Spinner spPlace;
 
     @BindView(R.id.spForm)
     Spinner spForm;
@@ -69,13 +70,12 @@ public class AddMedActivity extends Toolbar {
         checkIfFilled(dose, "brak");
         checkIfFilled(amount, "0");
 
-        if (place.getText().toString().equals("")) {
-            place.setText("brak");
-        }
         long didItWork = dA.addData(name.getText().toString(),
                 Integer.parseInt(amount.getText().toString()),
                 dose.getText().toString(),
-                dAPlace.getPlaceId(place.getText().toString()));
+                formList.toString(),
+                purpose.getText().toString(),
+                dAPlace.getPlaceId(spPlace.toString()));
         if (didItWork > 0) {
             Toast.makeText(AddMedActivity.this, "Succsess", Toast.LENGTH_LONG).show();
         } else {
@@ -95,7 +95,7 @@ public class AddMedActivity extends Toolbar {
 
         dAForm = new DatabaseFormAdapter(this);
         formList = new ArrayList<>();
-        adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, formList);
+        adapterForm = new ArrayAdapter<String>(this, R.layout.spinner_item, formList);
         dAForm.openDB();
         Cursor c = dAForm.getAllForms();
         while (c.moveToNext()) {
@@ -103,18 +103,28 @@ public class AddMedActivity extends Toolbar {
             formList.add(name);
         }
         dAForm.closeDB();
-        spForm.setAdapter(adapter);
+        spForm.setAdapter(adapterForm);
     }
 
     private void spinnerPlace() {
-
+        dAPlace = new DatabasePlaceAdapter(this);
+        placeList = new ArrayList<>();
+        adapterPlace = new ArrayAdapter<String>(this, R.layout.spinner_item, placeList);
+        dAPlace.openDB();
+        Cursor c = dAPlace.getAllPlaces();
+        while (c.moveToNext()) {
+            String name = c.getString(1);
+            placeList.add(name);
+        }
+        dAPlace.closeDB();
+        spForm.setAdapter(adapterPlace);
     }
     private void ClearEditText() {
         name.getText().clear();
         amount.getText().clear();
         dose.getText().clear();
-        place.getText().clear();
-        spForm.setAdapter(adapter);
+        spPlace.setAdapter(adapterPlace);
+        spForm.setAdapter(adapterForm);
         purpose.getText().clear();
 
 

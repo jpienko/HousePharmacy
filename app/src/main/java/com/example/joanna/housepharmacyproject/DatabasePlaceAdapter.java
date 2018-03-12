@@ -51,7 +51,6 @@ public class DatabasePlaceAdapter {
             return db.insert(DBConstants.PLACESTABLE, null, cv);
         } catch (Exception exp) {
             exp.printStackTrace();
-
             return 0;
         }
     }

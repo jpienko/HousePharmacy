@@ -41,12 +41,14 @@ public class DatabaseMedAdapter {
     }
 
     //INSERT
-    public long addData(String name, int amount, String dose, int place) {
+    public long addData(String name, int amount, String dose, String form, String purpose, int place) {
         try {
             ContentValues cv = new ContentValues();
             cv.put(DBConstants.NAME, name);
             cv.put(DBConstants.AMOUNT, amount);
             cv.put(DBConstants.DOSE, dose);
+            cv.put(DBConstants.FORM,form);
+            cv.put(DBConstants.PURPOSE,purpose);
             cv.put(DBConstants.PLACE, place);
             return db.insert(DBConstants.MEDSTABLE, null, cv);
 
