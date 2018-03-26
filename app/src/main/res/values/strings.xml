@@ -1,12 +1,16 @@
 <resources>
     <string name="app_name">Domowa Apteczka</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
     <string name="instruction_add">1.Aby dodać lek podaj jego nazwę, możesz uzupełnić również pozostałe pola, a następnie naciśnij przycisk \"DODAJ LEK\".\n \n2.Jeżeli nie chcesz uzupełniać pozastałych pól, możesz uzupełnić informację później.</string>
     <string name="instruction_add_place">Aby dodać miejsce podaj jego nazwę, a następnie naciśnij przycisk \"DODAJ MIEJSCE\".\n Jeżeli nie chcesz uzupełniać pola opis, możesz uzupełnić je później.</string>
     <string name="instruction_update">Aby zaktualizować lek uzupełnij pola, odpowiadające informacji, którą chcesz zmienić, a następnie naciśnij przycisk \"ZAKTUALIZUJ LEK\".</string>
     <string name="instruction_update_place">Aby zaktualizować miejsce uzupełnij pola, odpowiadające informacji, którą chcesz zmienić, a następnie naciśnij przycisk \"ZAKTUALIZUJ MIEJSCE\". \n By wrócić do menu głównego bez dokonywania zmian naciśnij przycisk \"WYJDŹ POZOSTAWIAJĄC BEZ ZMIAN\"</string>
     <string name="instruction_search">"Aby wyszukać lek"</string>
-    <string name="instruction_display">"Aby wyszukać lek"</string>
-    <string name="instruction_display_place">"Aby wyszukać lek"</string>
+    <string name="instruction_display">"Tu wyświetlone zostaną dodane leki. \nAby zaktualizować lek, naciśnij "AKTUALIZUJ" przy interesującej cię pozycji. \nJeżeli chcesz usunąć lek, naciśnij "USUŃ" przy wybranej pozycji"</string>
+    <string name="instruction_display_place">"Tu wyświetlone zostaną dodane miejsca. \nAby zaktualizować miejsce, naciśnij "AKTUALIZUJ" przy interesującej cię pozycji. \nJeżeli chcesz usunąć miejsce, naciśnij "USUŃ" przy wybranej pozycji. \nJeżeli chcesz podejrzeć zawartość miejsca, naciśnij "POKAŻ ZAWARTOŚĆ""</string>
+    <string name="instruction_help">"Tu znajdziesz podstawowe informacje o działaniu programu, po zapoznaniu się z nimi wróć do menu głównego i ciesz się z możliwości aplikacji"</string>
     <string name="back_button">Wróć</string>
     <string name="name_string">Nazwa</string>
     <string name="amount_string">Ilość</string>
@@ -25,6 +29,6 @@
     <string name="yes_string">TAK</string>
     <string name="no_string">NIE</string>
     <string name="place_dialog_string">Czy chcesz usunąć miejsce wraz z zawartością? .\n Jeżeli wybierzesz \"NIE\", zawartość zostanie przeniesiona do \"none\"</string>
-    <string name="delete_dialog_string">Czy na pewno chcesz usunąć?</string>
+    <string name="delete_dialog_string">Czy na pewno chcesz trwale usunąć lek?</string>
 
 </resources>

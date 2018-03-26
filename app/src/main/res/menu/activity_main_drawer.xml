@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="Dodaj">
+
+        <menu>
+            <item
+                android:id="@+id/nav_add_med"
+                android:icon="@drawable/ic_add"
+                android:title="Dodaj lek"
+                />
+            <item
+                android:id="@+id/nav_add_place"
+                android:icon="@drawable/ic_add"
+                android:title="Dodaj miejsce" />
+
+        </menu>
+    </item>
+    <item android:title="Pokaż dodane">
+
+        <menu>
+
+            <item
+                android:id="@+id/nav_show_meds"
+                android:icon="@drawable/ic_list"
+                android:title="Pokaż listę leków" />
+            <item
+                android:id="@+id/nav_show_places"
+                android:icon="@drawable/ic_list"
+                android:title="Pokaż listę miejsc" />
+        </menu>
+    </item>
+
+    <item android:title="Opcje dodatkowe">
+        <menu>
+            <item
+                android:id="@+id/nav_help"
+                android:icon="@drawable/ic_live_help"
+                android:title="Pomoc" />
+
+        </menu>
+    </item>
+
+</menu>
