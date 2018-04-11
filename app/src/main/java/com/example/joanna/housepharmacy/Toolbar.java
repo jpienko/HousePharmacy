@@ -1,6 +1,7 @@
 package com.example.joanna.housepharmacy;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -55,5 +56,11 @@ public abstract class Toolbar extends AppCompatActivity{
         dialog.show();
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void getAdapterMed(Context context){
+        DatabaseMedAdapter dbMed = new DatabaseMedAdapter(context);
+        DatabasePlaceAdapter dbPlace = new DatabasePlaceAdapter(context);
+        DatabaseFormAdapter dbForm = new DatabaseFormAdapter(context);
     }
 }

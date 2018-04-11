@@ -1,5 +1,6 @@
 package com.example.joanna.housepharmacy;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class MedDisplayActivity extends Toolbar {
 
     MedAdapter medAdapter;
     ArrayList<Med> meds;
+    Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,18 +36,26 @@ public class MedDisplayActivity extends Toolbar {
         init(this, R.string.instruction_display, "Lista leków");
         ButterKnife.bind(this);
 
+        implementRecycle();
+        retriveBundle();
+        inicialize();
+    }
+
+    private void implementRecycle() {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recView.setLayoutManager(layoutManager);
         recView.setLayoutManager(new LinearLayoutManager(this));
         recView.setItemAnimator(new DefaultItemAnimator());
+    }
 
+    private void retriveBundle() {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             meds = (ArrayList<Med>) bundle.getSerializable("MedsList");
             if (!(meds.size() < 1)) {
                 recView.setAdapter(medAdapter);
-                tvHowManyMeds.setText("Liczba znalezionych leków: "+ String.valueOf(meds.size()));
-            }else{
+                tvHowManyMeds.setText("Liczba znalezionych leków: " + String.valueOf(meds.size()));
+            } else {
                 tvHowManyMeds.setText("Nie znaleziono pasujących leków");
             }
         } else {
@@ -53,12 +63,20 @@ public class MedDisplayActivity extends Toolbar {
             tvHowManyMeds.setText("Wszystkie dodane leki");
             retrieveMed();
         }
-        inicialize();
     }
 
     private void retrieveMed() {
         meds.clear();
 
+        getMedObject();
+
+        if (!(meds.size() < 1)) {
+            recView.setAdapter(medAdapter);
+        }
+
+    }
+
+    private void getMedObject() {
         DatabaseMedAdapter dbMed = new DatabaseMedAdapter(this);
         DatabasePlaceAdapter dbPlace = new DatabasePlaceAdapter(this);
         DatabaseFormAdapter dbForm = new DatabaseFormAdapter(this);
@@ -86,20 +104,15 @@ public class MedDisplayActivity extends Toolbar {
             Med m = new Med(id, name, dose, form, amount, purpose, place);
             meds.add(m);
         }
-
-        if (!(meds.size() < 1)) {
-            recView.setAdapter(medAdapter);
-        }
-
     }
 
-    public void inicialize(){
+    public void inicialize() {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recView.setLayoutManager(layoutManager);
         RecyclerViewClickListener listener = (view, position, id, bNumber) -> {
-            if (bNumber == 1){
+            if (bNumber == 1) {
                 goToUpdateMed(id);
-            }else if(bNumber==2){
+            } else if (bNumber == 2) {
                 deleteMedFromList(id);
             }
         };
@@ -109,12 +122,11 @@ public class MedDisplayActivity extends Toolbar {
 
     public void goToUpdateMed(String id) {
 
-
-            Intent intent = new Intent(MedDisplayActivity.this, MedUpdateActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putInt("Id", Integer.parseInt(id));
-            intent.putExtras(bundle);
-            startActivity(intent);
+        Intent intent = new Intent(MedDisplayActivity.this, MedUpdateActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt("Id", Integer.parseInt(id));
+        intent.putExtras(bundle);
+        startActivity(intent);
 
     }
 

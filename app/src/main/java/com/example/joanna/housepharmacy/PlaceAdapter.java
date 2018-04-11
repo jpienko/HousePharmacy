@@ -62,6 +62,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
         TextView tvDescription;
 
 
+
         @OnClick(R.id.bGoToUpdatePlace)
         void go(){
             bNumber = 1;
@@ -78,7 +79,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
             onClick(itemView);
         }
 
-        public ViewHolder(View itemView, RecyclerViewClickListener listener) {
+        ViewHolder(View itemView, RecyclerViewClickListener listener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             this.listener = listener;
