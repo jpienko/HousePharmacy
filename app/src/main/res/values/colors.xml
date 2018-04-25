@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1ca295</color>
+    <color name="colorPrimaryDark">#0e6159</color>
+    <color name="colorAccent">#28e1cf</color>
+    <color name="spinner">#d6878b8b</color>
+    <color name="text">#020e0d</color>
+    <color name = "add_med">#773ba7</color>
+    <color name = "add_place">#127aa7</color>
+    <color name = "show_med">#592c7c</color>
+    <color name = "show_place">#0e6a91</color>
+    <color name="background">#bebebe</color>
+</resources>

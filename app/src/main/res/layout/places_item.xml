@@ -1,0 +1,123 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:grid="http://schemas.android.com/apk/res-auto"
+    android:layout_centerHorizontal="true"
+    android:padding="4dp"
+
+    android:paddingBottom="10sp"
+    android:paddingLeft="10sp"
+    android:paddingRight="10sp"
+    android:paddingTop="10sp"
+    android:rowCount="4"
+    android:columnCount="3"
+    tools:context="com.example.joanna.housepharmacy.Activities.PlaceDisplayActivity"
+    android:alignmentMode="alignBounds"
+    android:rowOrderPreserved="false"
+    android:useDefaultMargins="true">
+
+<TextView
+        android:id="@+id/tvPlaceName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+    android:layout_gravity="fill_horizontal"
+
+    android:layout_column="2"
+        android:layout_row="0"
+        android:text="@string/place_name_string"
+        android:textColor="@color/text"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvPlaceId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID"
+        android:layout_marginBottom="10dp"
+        android:layout_column="0"
+        android:layout_row="0"
+        android:textColor="#00ffffff"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold"
+        tools:ignore="UnknownIdInLayout" />
+
+    <TextView
+        android:id="@+id/tvDescrition"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_horizontal"
+        android:text="@string/description_string"
+        android:layout_column="2"
+        android:layout_row="1"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/text"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_horizontal"
+        android:text="@string/place_name_string"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/text"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description_string"
+        android:layout_column="1"
+        android:layout_row="1"
+        android:textColor="@color/text"
+        android:textSize="@dimen/tvDisplay"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/bGoToUpdatePlace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_horizontal"
+        android:layout_column="2"
+        android:layout_row="2"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/rounded_button"
+        android:text="AKTUALIZUJ"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/white" />
+    <Button
+        android:id="@+id/bDeletePlaceFromList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_horizontal"
+        android:layout_column="0"
+        android:layout_row="2"
+        android:layout_columnSpan="2"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/rounded_button"
+        android:text="usuń"
+        android:textColor="@android:color/white" />
+    <Button
+        android:id="@+id/bGoToContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_horizontal"
+        android:minWidth="350dp"
+        android:layout_column="0"
+        android:layout_row="3"
+        android:layout_columnSpan="3"
+        android:background="@drawable/rounded_button"
+        android:text="Pokaż Zawartość"
+        android:textColor="@android:color/white" />
+
+
+</GridLayout>
