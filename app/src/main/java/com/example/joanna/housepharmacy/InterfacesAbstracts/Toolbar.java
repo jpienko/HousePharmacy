@@ -207,4 +207,15 @@ public abstract class Toolbar extends AppCompatActivity {
         }
         db.closeDB();
     }
+    public static boolean isNumeric(String str)
+    {
+        for (char c : str.toCharArray())
+        {
+            if (!Character.isDigit(c))
+            {
+                if (!(String.valueOf(c).matches("."))|| !(String.valueOf(c).matches(","))) return false;
+            }}
+        return true;
+    }
+
 }
