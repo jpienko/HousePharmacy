@@ -45,9 +45,8 @@ public class MedDisplayActivity extends Toolbar {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_med_display);
-        init(this, R.string.instruction_display, "Lista leków");
+        init(this, R.string.instruction_display, getString(R.string.med_list_title));
         ButterKnife.bind(this);
-
         implementRecycle();
         retriveBundle();
         inicialize();
@@ -66,7 +65,7 @@ public class MedDisplayActivity extends Toolbar {
             getBundleContent(bundle);
         } else {
             meds = new ArrayList<>();
-            tvHowManyMeds.setText("Wszystkie dodane leki");
+            tvHowManyMeds.setText(R.string.all_med_added);
             retrieveMed();
         }
     }
@@ -75,9 +74,9 @@ public class MedDisplayActivity extends Toolbar {
         meds = (ArrayList<Med>) bundle.getSerializable("MedsList");
         if (!(meds.size() < 1)) {
             recView.setAdapter(medAdapter);
-            tvHowManyMeds.setText("Liczba znalezionych leków: " + String.valueOf(meds.size()));
+            tvHowManyMeds.setText(getString(R.string.list_of_found_meds) + String.valueOf(meds.size()));
         } else {
-            tvHowManyMeds.setText("Nie znaleziono pasujących leków");
+            tvHowManyMeds.setText(R.string.no_meds_found);
         }
     }
 
@@ -88,12 +87,10 @@ public class MedDisplayActivity extends Toolbar {
         if (!(meds.size() < 1)) {
             recView.setAdapter(medAdapter);
         }
-
     }
 
     private void getMedObject() {
         setDatabaseAdapters();
-
         dAMed.openDB();
         Cursor cursor = dAMed.getAllMeds();
         addMedToList(cursor,dAMed,dAForm,dAPlace,meds);
@@ -104,7 +101,6 @@ public class MedDisplayActivity extends Toolbar {
         dAPlace = new DatabasePlaceAdapter(this);
         dAForm = new DatabaseFormAdapter(this);
     }
-
 
     public void inicialize() {
         RecyclerViewClickListener listener = (view, position, id, bNumber) -> {

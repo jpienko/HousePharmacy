@@ -1,7 +1,6 @@
 package com.example.joanna.housepharmacy.Activities;
 
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.widget.ExpandableListView;
 
 import com.example.joanna.housepharmacy.HelpExpandable.ChildItemsInfo;
@@ -28,7 +27,11 @@ public class HelpActivity extends Toolbar {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
         setContentView(R.layout.activity_help);
-        init(this, R.string.instruction_help, "Pomoc");
+        init(this, R.string.instruction_help, getString(R.string.help_title));
+        inicializeExpandableList();
+    }
+
+    private void inicializeExpandableList() {
         loadData();
         simpleExpandableListView = (ExpandableListView) findViewById(R.id.simpleExpandableListView);
         myExpandableListAdapter = new MyExpandableListAdapter(HelpActivity.this, deptList);
@@ -37,17 +40,21 @@ public class HelpActivity extends Toolbar {
 
     private void loadData() {
 
-        addProduct("1. Po co mi ta aplikacja?", " Aplikacja została stworzona, aby ułatwić poszukiwanie leków");
-        addProduct("1. Po co mi ta aplikacja?","Dzięki tej aplikacji powinieneś/powinnaś mieć możliwość zawsze i wszędzie skontrolować stan apteczki, oczywiście, gdy na bieżąco uaktualniasz informacje");
+        addProduct(getString(R.string.question1), getString(R.string.answer1_1));
+        addProduct(getString(R.string.question1), getString(R.string.answer1_2));
 
-        addProduct("2. Jak poruszać się po aplikacji?", "");
+        addProduct(getString(R.string.question2), getString(R.string.answer2_1));
+        addProduct(getString(R.string.question2), getString(R.string.answer2_2));
+        addProduct(getString(R.string.question2), getString(R.string.answer2_3));
+        addProduct(getString(R.string.question2), getString(R.string.answer2_4));
+        addProduct(getString(R.string.question2), getString(R.string.answer2_5));
 
-        addProduct("3. Co mogę robić?", "1. Szukać leków");
-        addProduct("3. Co mogę robić?", "2. Dodawać/usuwać leki");
-        addProduct("3. Co mogę robić?", "3. Aktualizować leki");
-        addProduct("3. Co mogę robić?", "4. Dodawać/usuwać nowe miejsca przechowywania");
-        addProduct("3. Co mogę robić?", "5. Aktualizować informacje o miejscu przechowywania");
-        addProduct("3. Co mogę robić?", "6. Przeglądać listę dodanych leków");
+        addProduct(getString(R.string.question3), getString(R.string.answer3_1));
+        addProduct(getString(R.string.question3), getString(R.string.answer3_2));
+        addProduct(getString(R.string.question3), getString(R.string.answer3_3));
+        addProduct(getString(R.string.question3), getString(R.string.answer3_4));
+        addProduct(getString(R.string.question3), getString(R.string.answer3_5));
+        addProduct(getString(R.string.question3), getString(R.string.answer3_6));
 
 
     }

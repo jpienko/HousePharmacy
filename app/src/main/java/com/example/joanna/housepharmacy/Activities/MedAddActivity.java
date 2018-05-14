@@ -51,7 +51,7 @@ public class MedAddActivity extends Toolbar {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_med_add);
         ButterKnife.bind(this);
-        init(this, R.string.instruction_add, "Dodaj lek");
+        init(this, R.string.instruction_add, getString(R.string.add_med_title));
         spinnerForm(dAForm, formList, adapterForm, spFormAdd);
         spinnerPlace(dAPlace, placeList, adapterPlace, spPlaceAdd);
 
@@ -60,9 +60,9 @@ public class MedAddActivity extends Toolbar {
     @OnClick(R.id.bAddMed)
     void Click() {
         if (name.getText().toString().matches("")) {
-            Toast.makeText(MedAddActivity.this, "Musisz podać nazwę leku!", Toast.LENGTH_LONG).show();
+            Toast.makeText(MedAddActivity.this, R.string.fill_name_remind, Toast.LENGTH_LONG).show();
         } else if (isDouble(amount)) {
-            Toast.makeText(MedAddActivity.this, "Musisz podać ilość w postaci liczby (nie musi być całkowita)", Toast.LENGTH_LONG).show();
+            Toast.makeText(MedAddActivity.this, R.string.amount_int_remind, Toast.LENGTH_LONG).show();
         } else {
             addMed();
         }
@@ -85,10 +85,10 @@ public class MedAddActivity extends Toolbar {
     }
 
     private void checkFilling() {
-        checkIfFilled(purpose, "brak");
-        checkIfFilled(dose, "brak");
+        checkIfFilled(purpose, getString(R.string.none));
+        checkIfFilled(dose, getString(R.string.none));
         checkIfFilled(amount, "0");
-        checkIfFilled(purpose, "brak");
+        checkIfFilled(purpose, getString(R.string.none));
     }
 
     private void checkIfFilled(EditText editText, String value) {
@@ -100,9 +100,9 @@ public class MedAddActivity extends Toolbar {
     private void checkIfWorked() {
         long didItWork = getDidItWork();
         if (didItWork > 0) {
-            Toast.makeText(MedAddActivity.this, "Pomyślnie dodano lek", Toast.LENGTH_LONG).show();
+            Toast.makeText(MedAddActivity.this, R.string.add_med_succsess, Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(MedAddActivity.this, "Błąd podczas dodawania", Toast.LENGTH_LONG).show();
+            Toast.makeText(MedAddActivity.this, R.string.add_med_fail, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -117,7 +117,7 @@ public class MedAddActivity extends Toolbar {
 
     private String spinnerCorrection(Spinner spinner) {
         if (spinner.getSelectedItem().toString().matches("-")) {
-            return "brak";
+            return getString(R.string.none);
         } else
             return spinner.getSelectedItem().toString();
     }

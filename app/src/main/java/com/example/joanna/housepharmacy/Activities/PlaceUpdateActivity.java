@@ -39,7 +39,7 @@ public class PlaceUpdateActivity extends Toolbar {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_update);
-        init(PlaceUpdateActivity.this, R.string.instruction_update_place, "Zaktualizuj miejsce przechowywania");
+        init(PlaceUpdateActivity.this, R.string.instruction_update_place, getString(R.string.place_update_title));
         ButterKnife.bind(this);
         setTextView();
     }
@@ -59,9 +59,9 @@ public class PlaceUpdateActivity extends Toolbar {
             didItWork = 0;
         }
         if (didItWork > 0) {
-            Toast.makeText(PlaceUpdateActivity.this, "Pomyślnie zaktualizowano miejsce", Toast.LENGTH_LONG).show();
+            Toast.makeText(PlaceUpdateActivity.this, R.string.place_update_success, Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(PlaceUpdateActivity.this, "Nie udało się zaktualizować", Toast.LENGTH_LONG).show();
+            Toast.makeText(PlaceUpdateActivity.this, R.string.place_update_fail, Toast.LENGTH_LONG).show();
         }
         ClearEditText();
         dbPlace.closeDB();

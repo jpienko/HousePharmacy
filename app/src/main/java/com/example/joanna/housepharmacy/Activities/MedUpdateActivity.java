@@ -28,6 +28,7 @@ public class MedUpdateActivity extends Toolbar {
 
     DatabasePlaceAdapter dAPlace;
     ArrayList<String> placeList;
+
     @BindView(R.id.tvNameUpdate)
     TextView nameCurrent;
     @BindView(R.id.tvDoseUpdate)
@@ -52,6 +53,7 @@ public class MedUpdateActivity extends Toolbar {
     EditText purposeUpdate;
     @BindView(R.id.spPlaceUpdate)
     Spinner spPlaceUpdate;
+
     private DatabaseMedAdapter dAMed;
     private DatabaseFormAdapter dAForm;
     private ArrayAdapter<String> adapterForm;
@@ -62,17 +64,17 @@ public class MedUpdateActivity extends Toolbar {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_med_update);
-        init(MedUpdateActivity.this, R.string.instruction_update, "Zaktualizuj lek");
+        init(MedUpdateActivity.this, R.string.instruction_update, getString(R.string.update_med_title));
         ButterKnife.bind(this);
-        spinnerForm(dAForm,formList,adapterForm,spFormUpdate);
-        spinnerPlace(dAPlace,placeList,adapterPlace,spPlaceUpdate);
+        spinnerForm(dAForm, formList, adapterForm, spFormUpdate);
+        spinnerPlace(dAPlace, placeList, adapterPlace, spPlaceUpdate);
         setAllTextView();
     }
 
     @OnClick(R.id.bUpdateMed)
     void updateMed() {
         if (isDouble(amountUpdate)) {
-            Toast.makeText(MedUpdateActivity.this, "Musisz ilość w postaci liczby (nie musi być całkowita)", Toast.LENGTH_LONG).show();
+            Toast.makeText(MedUpdateActivity.this, R.string.amount_int_remind, Toast.LENGTH_LONG).show();
         } else {
             getDatabaseAdapter();
             updateInDatabase();
@@ -123,8 +125,8 @@ public class MedUpdateActivity extends Toolbar {
     }
 
     private void updateInDatabase() {
-        int form = getFormID(dAForm,getNewRowIdData(formCurrent, spFormUpdate));
-        int place = getPlaceID(dAPlace,getNewRowIdData(placeCurrent, spPlaceUpdate));
+        int form = getFormID(dAForm, getNewRowIdData(formCurrent, spFormUpdate));
+        int place = getPlaceID(dAPlace, getNewRowIdData(placeCurrent, spPlaceUpdate));
         dAMed.openDB();
         String name = getNewRowData(nameCurrent, nameUpdate);
         String dose = getNewRowData(doseCurrent, doseUpdate);
@@ -153,9 +155,9 @@ public class MedUpdateActivity extends Toolbar {
             didItWork = 0;
         }
         if (didItWork > 0) {
-            Toast.makeText(MedUpdateActivity.this, "Pomyślnie zaktualizowano lek", Toast.LENGTH_LONG).show();
+            Toast.makeText(MedUpdateActivity.this, R.string.update_med_succsess, Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(MedUpdateActivity.this, "Błąd podczas aktualizacji", Toast.LENGTH_LONG).show();
+            Toast.makeText(MedUpdateActivity.this, R.string.update_med_fail, Toast.LENGTH_LONG).show();
         }
     }
 

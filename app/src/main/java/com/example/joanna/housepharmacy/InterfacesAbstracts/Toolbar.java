@@ -20,6 +20,7 @@ import com.example.joanna.housepharmacy.DatabaseAdapters.DatabaseFormAdapter;
 import com.example.joanna.housepharmacy.DatabaseAdapters.DatabaseMedAdapter;
 import com.example.joanna.housepharmacy.DatabaseAdapters.DatabasePlaceAdapter;
 import com.example.joanna.housepharmacy.Medicaments.Med;
+import com.example.joanna.housepharmacy.Places.Place;
 import com.example.joanna.housepharmacy.R;
 
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public abstract class Toolbar extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.rest, menu);
-        if (activity.getTitle() == "Domowa apteczka") {
+        if (activity.getTitle() == getString(R.string.app_name)) {
             menu.findItem(R.id.action_home).setVisible(false);
         } else {
             menu.findItem(R.id.action_home).setVisible(true);
@@ -172,22 +173,38 @@ public abstract class Toolbar extends AppCompatActivity {
     }
 
     public void addMedToList(Cursor cursor, DatabaseMedAdapter dbMed, DatabaseFormAdapter dAForm, DatabasePlaceAdapter dAPlace, ArrayList<Med> meds) {
-        while (cursor.moveToNext()) {
-            int id = cursor.getInt(0);
-            String name = cursor.getString(1);
-            String dose = cursor.getString(2);
-            int formInt = cursor.getInt(3);
-            double amount = cursor.getDouble(4);
-            String purpose = cursor.getString(5);
-            int placeInt = cursor.getInt(6);
-            dbMed.closeDB();
+       if(cursor!=null) {
+           while (cursor.moveToNext()) {
+               int id = cursor.getInt(0);
+               String name = cursor.getString(1);
+               String dose = cursor.getString(2);
+               int formInt = cursor.getInt(3);
+               double amount = cursor.getDouble(4);
+               String purpose = cursor.getString(5);
+               int placeInt = cursor.getInt(6);
+               dbMed.closeDB();
 
-            String form = getFormName(dAForm, formInt);
+               String form = getFormName(dAForm, formInt);
 
-            String place = getPlaceName(dAPlace, placeInt);
+               String place = getPlaceName(dAPlace, placeInt);
 
-            Med m = new Med(id, name, dose, form, amount, purpose, place);
-            meds.add(m);
+               Med m = new Med(id, name, dose, form, amount, purpose, place);
+               meds.add(m);
+           }
+       }
+    }
+
+    public void addToPlaceList(ArrayList<Place> places) {
+        DatabasePlaceAdapter db = new DatabasePlaceAdapter(this);
+        db.openDB();
+        Cursor c = db.getAllPlaces();
+        while (c.moveToNext()) {
+            int id = c.getInt(0);
+            String name = c.getString(1);
+            String desc = c.getString(2);
+            Place p = new Place(id, name, desc);
+            places.add(p);
         }
+        db.closeDB();
     }
 }

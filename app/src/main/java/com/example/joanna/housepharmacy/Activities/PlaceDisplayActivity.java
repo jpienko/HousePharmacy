@@ -32,7 +32,9 @@ public class PlaceDisplayActivity extends Toolbar {
 
     @BindView(R.id.recViewPlace)
     RecyclerView recViewPlace;
+
     RecyclerViewClickListener listener;
+
     private DatabaseMedAdapter dbMed;
     private DatabasePlaceAdapter dbPlace;
     private DatabaseFormAdapter dbForm;
@@ -45,19 +47,29 @@ public class PlaceDisplayActivity extends Toolbar {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_display);
-        init(PlaceDisplayActivity.this, R.string.instruction_display_place, "Lista miejsc");
+        init(PlaceDisplayActivity.this, R.string.instruction_display_place, getString(R.string.place_list_title));
         ButterKnife.bind(this);
-        recViewPlace.setLayoutManager(new LinearLayoutManager(this));
-        recViewPlace.setItemAnimator(new DefaultItemAnimator());
+        setRecyclerView();
         retrievePlace();
         inicialize();
+    }
 
+    private void setRecyclerView() {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recViewPlace.setLayoutManager(layoutManager);
+        recViewPlace.setLayoutManager(new LinearLayoutManager(this));
+        recViewPlace.setItemAnimator(new DefaultItemAnimator());
+    }
 
+    private void retrievePlace() {
+        places.clear();
+        addToPlaceList(places);
+        if (!(places.size() < 1)) {
+            recViewPlace.setAdapter(placeAdapter);
+        }
     }
 
     public void inicialize() {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recViewPlace.setLayoutManager(layoutManager);
         listener = (view, position, id, bNumber) -> {
             whichOneWasClicked(id, bNumber);
         };
@@ -70,43 +82,20 @@ public class PlaceDisplayActivity extends Toolbar {
             if (Integer.valueOf(id) != 1) {
                 goToUpdatePlace(id);
             } else {
-                Toast.makeText(PlaceDisplayActivity.this, "Tej pozycji nie możesz edytować", Toast.LENGTH_LONG).show();
+                Toast.makeText(PlaceDisplayActivity.this, R.string.do_not_edit, Toast.LENGTH_LONG).show();
             }
         } else if (bNumber == 2) {
             if (Integer.valueOf(id) != 1) {
                 deletePlaceFromList(id);
-
             } else {
-                Toast.makeText(PlaceDisplayActivity.this, "Tej pozycji nie możesz usunąć", Toast.LENGTH_LONG).show();
+                Toast.makeText(PlaceDisplayActivity.this, R.string.do_not_delete, Toast.LENGTH_LONG).show();
             }
         } else if (bNumber == 3) {
             goToContent(id);
         }
     }
 
-    private void retrievePlace() {
-        places.clear();
-
-        DatabasePlaceAdapter db = new DatabasePlaceAdapter(this);
-        db.openDB();
-        Cursor c = db.getAllPlaces();
-        while (c.moveToNext()) {
-            int id = c.getInt(0);
-            String name = c.getString(1);
-            String desc = c.getString(2);
-            Place p = new Place(id, name, desc);
-            places.add(p);
-        }
-        db.closeDB();
-
-        if (!(places.size() < 1)) {
-            recViewPlace.setAdapter(placeAdapter);
-        }
-
-    }
-
     public void goToUpdatePlace(String id) {
-
         Intent intent = new Intent(PlaceDisplayActivity.this, PlaceUpdateActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString("IdPlace", id);
@@ -114,51 +103,33 @@ public class PlaceDisplayActivity extends Toolbar {
         startActivity(intent);
     }
 
-
     public void goToContent(String id) {
+        setDatabaseAdapters();
+        getAllMatchingMeds(id);
+        goToMatchingMedsList();
+    }
+
+    private void setDatabaseAdapters() {
         dbMed = new DatabaseMedAdapter(this);
         dbPlace = new DatabasePlaceAdapter(this);
         dbForm = new DatabaseFormAdapter(this);
+    }
+
+    private void getAllMatchingMeds(String id) {
         meds.clear();
         DatabaseMedAdapter dbMed = new DatabaseMedAdapter(this);
         dbMed.openDB();
         Cursor c = dbMed.searchMedByOne(id, DatabaseConstants.PLACE);
-        getMed(c);
+        addMedToList(c,dbMed,dbForm,dbPlace,meds);
+    }
 
+    private void goToMatchingMedsList() {
         Intent in = new Intent(PlaceDisplayActivity.this, MedDisplayActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("MedsList", (Serializable) meds);
         in.putExtras(bundle);
         startActivity(in);
-
     }
-
-    private void getMed(Cursor c) {
-        if (c != null) {
-            while (c.moveToNext()) {
-                int id = c.getInt(0);
-                String name = c.getString(1);
-                String dose = c.getString(2);
-                int formInt = c.getInt(3);
-                double amount = c.getDouble(4);
-                String purpose = c.getString(5);
-                int placeInt = c.getInt(6);
-                dbMed.closeDB();
-
-                dbForm.openDB();
-                String form = dbForm.getFormName(formInt);
-                dbForm.closeDB();
-
-                dbPlace.openDB();
-                String place = dbPlace.getPlaceName(placeInt);
-                dbPlace.closeDB();
-
-                Med m = new Med(id, name, dose, form, amount, purpose, place);
-                meds.add(m);
-            }
-        }
-    }
-
 
     public void deletePlaceFromList(String id) {
 
@@ -166,6 +137,13 @@ public class PlaceDisplayActivity extends Toolbar {
         View mView = getLayoutInflater().inflate(R.layout.dialog_delete, null);
         mBuilder.setView(mView);
         final AlertDialog dialog = mBuilder.create();
+        doNotDelete(mView, dialog);
+        deletePlace(id, mView, dialog);
+        dialog.show();
+
+    }
+
+    private void doNotDelete(View mView, AlertDialog dialog) {
         Button bNo = (Button) mView.findViewById(R.id.bDoNotDelete);
         bNo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,7 +152,9 @@ public class PlaceDisplayActivity extends Toolbar {
 
             }
         });
+    }
 
+    private void deletePlace(String id, View mView, AlertDialog dialog) {
         Button bYes = (Button) mView.findViewById(R.id.bDeleteContent);
         bYes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,8 +163,6 @@ public class PlaceDisplayActivity extends Toolbar {
                 dialog.dismiss();
             }
         });
-        dialog.show();
-
     }
 
     public void dialogDeletePlaceContent(String id) {
@@ -192,6 +170,24 @@ public class PlaceDisplayActivity extends Toolbar {
         View mView = getLayoutInflater().inflate(R.layout.place_dialog, null);
         mBuilder.setView(mView);
         final AlertDialog dialog = mBuilder.create();
+        changePlaceToNone(id, mView, dialog);
+        deletePlaceWithItsContent(id, mView, dialog);
+        dialog.show();
+    }
+
+    private void deletePlaceWithItsContent(String id, View mView, AlertDialog dialog) {
+        Button bYesDelete = (Button) mView.findViewById(R.id.bDeleteAllContent);
+        bYesDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteWithContent(id);
+                dialog.dismiss();
+                retrievePlace();
+            }
+        });
+    }
+
+    private void changePlaceToNone(String id, View mView, AlertDialog dialog) {
         Button bNoReplece = (Button) mView.findViewById(R.id.bReplaceContentToNone);
         bNoReplece.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -202,17 +198,6 @@ public class PlaceDisplayActivity extends Toolbar {
 
             }
         });
-
-        Button bYesDelete = (Button) mView.findViewById(R.id.bDeleteAllContent);
-        bYesDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                deleteWithContent(id);
-                dialog.dismiss();
-                retrievePlace();
-            }
-        });
-        dialog.show();
     }
 
     public void deleteWithoutContent(String id) {

@@ -2,6 +2,7 @@ package com.example.joanna.housepharmacy.Activities;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -30,39 +31,45 @@ public class PlaceAddActivity extends Toolbar {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_add);
-        init(this, R.string.instruction_add_place, "Dodaj miejsce przechowywania");
+        init(this, R.string.instruction_add_place, getString(R.string.add_place_title));
         ButterKnife.bind(this);
     }
 
     @OnClick(R.id.bAddPlace)
     void Click() {
         if (name.getText().toString().matches("")) {
-            Toast.makeText(PlaceAddActivity.this, "Musisz podać nazwę miejsca!", Toast.LENGTH_LONG).show();
+            Toast.makeText(PlaceAddActivity.this, R.string.add_name_remind, Toast.LENGTH_LONG).show();
         } else if (checkIfAlreadyAdded()){
             addPlace();
         } else{
-            Toast.makeText(PlaceAddActivity.this, "Mijesce o takiej nazwie już istnieje", Toast.LENGTH_LONG).show();
+            Toast.makeText(PlaceAddActivity.this, R.string.place_exists_remind, Toast.LENGTH_LONG).show();
         }
     }
 
     public void addPlace() {
+        getContent();
+        didAddWorked();
+        ClearEditText();
+    }
+
+    private void getContent() {
         dAPlace = new DatabasePlaceAdapter(this);
         dAPlace.openDB();
         if (description.getText().toString().matches("")) {
-            description.setText("brak");
+            description.setText(R.string.none);
         }
-
-        long didItWork = dAPlace.addPlace(name.getText().toString(),
-                description.getText().toString());
-        if (didItWork > 0) {
-            Toast.makeText(PlaceAddActivity.this, "Pomyślnie dodano miejsce", Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(PlaceAddActivity.this, "Nie udało się dodać miejsca", Toast.LENGTH_LONG).show();
-        }
-        ClearEditText();
-        dAPlace.closeDB();
     }
 
+    private void didAddWorked() {
+        long didItWork = dAPlace.addPlace(name.getText().toString(),
+                description.getText().toString());
+        dAPlace.closeDB();
+        if (didItWork > 0) {
+            Toast.makeText(PlaceAddActivity.this, R.string.add_place_succsess, Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(PlaceAddActivity.this, R.string.add_place_fail, Toast.LENGTH_LONG).show();
+        }
+    }
 
     private void ClearEditText() {
         name.getText().clear();
@@ -70,6 +77,12 @@ public class PlaceAddActivity extends Toolbar {
     }
 
     private boolean checkIfAlreadyAdded() {
+        ArrayList<String> placeList = createNamesList();
+        return checkNameList(placeList);
+    }
+
+    @NonNull
+    private ArrayList<String> createNamesList() {
         dAPlace = new DatabasePlaceAdapter(this);
         ArrayList<String> placeList = new ArrayList<>();
         dAPlace.openDB();
@@ -79,7 +92,10 @@ public class PlaceAddActivity extends Toolbar {
             placeList.add(name);
         }
         dAPlace.closeDB();
+        return placeList;
+    }
 
+    private boolean checkNameList(ArrayList<String> placeList) {
         for (int i = 0; i < placeList.size(); i++) {
             if (name.getText().toString().matches(placeList.get(i))) {
                 return false;

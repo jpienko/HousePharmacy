@@ -85,7 +85,7 @@
         android:layout_marginBottom="5dp"
         android:layout_marginTop="10dp"
         android:layout_row="0"
-        android:text="Obecnie"
+        android:text="@string/current_string"
         android:textColor="@color/text"
         android:textSize="@dimen/tvUpdate"
         android:textStyle="bold"
@@ -172,7 +172,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginTop="10dp"
         android:layout_row="0"
-        android:text="Zmień"
+        android:text="@string/change_string"
         android:textColor="@color/text"
         android:textSize="@dimen/tvUpdate"
         android:textStyle="bold" />

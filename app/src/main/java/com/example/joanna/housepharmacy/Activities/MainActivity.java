@@ -58,12 +58,13 @@ public class MainActivity extends com.example.joanna.housepharmacy.InterfacesAbs
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         toolbarInit();
-        init(this, R.string.instruction_search, "Domowa apteczka");
+        init(this, R.string.instruction_search, getString(R.string.app_name));
         spinnerForm(dAForm, formList, adapterForm, spFormMain);
         spinnerPurpose();
         autoCompleteName();
 
     }
+
     private void toolbarInit() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -87,7 +88,6 @@ public class MainActivity extends com.example.joanna.housepharmacy.InterfacesAbs
             super.onBackPressed();
         }
     }
-
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -211,6 +211,7 @@ public class MainActivity extends com.example.joanna.housepharmacy.InterfacesAbs
             if (whichOnes[i] == null) {
                 whichOnes[i] = content;
                 whichOnes[i + 1] = columnName;
+                break;
             }
         }
         return whichOnes;
@@ -233,9 +234,7 @@ public class MainActivity extends com.example.joanna.housepharmacy.InterfacesAbs
     }
 
     private void getMedicamentsList(Cursor cursor) {
-        if (cursor != null) {
-            addMedToList(cursor, dAMed, dAForm, dAPlace, meds);
-        }
+        addMedToList(cursor, dAMed, dAForm, dAPlace, meds);
     }
 
     private void ClearEditText() {
