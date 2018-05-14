@@ -61,7 +61,7 @@ public class MedAddActivity extends Toolbar {
     void Click() {
         if (name.getText().toString().matches("")) {
             Toast.makeText(MedAddActivity.this, R.string.fill_name_remind, Toast.LENGTH_LONG).show();
-        } else if (isDouble(amount)) {
+        } else if (isNumeric(amount.toString())) {
             Toast.makeText(MedAddActivity.this, R.string.amount_int_remind, Toast.LENGTH_LONG).show();
         } else {
             addMed();
@@ -126,7 +126,7 @@ public class MedAddActivity extends Toolbar {
         return dbMed.addData(name.getText().toString(),
                 dose.getText().toString(),
                 form,
-                Double.parseDouble(amount.getText().toString()),
+                Double.parseDouble(amount.getText().toString().replaceAll(",",".")),
                 purpose.getText().toString(),
                 place);
     }

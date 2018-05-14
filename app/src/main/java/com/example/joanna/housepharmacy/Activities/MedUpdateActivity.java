@@ -73,7 +73,7 @@ public class MedUpdateActivity extends Toolbar {
 
     @OnClick(R.id.bUpdateMed)
     void updateMed() {
-        if (isDouble(amountUpdate)) {
+        if (!(isNumeric(amountUpdate.getText().toString()))) {
             Toast.makeText(MedUpdateActivity.this, R.string.amount_int_remind, Toast.LENGTH_LONG).show();
         } else {
             getDatabaseAdapter();
@@ -166,7 +166,7 @@ public class MedUpdateActivity extends Toolbar {
         didItWork = dAMed.updateRow(id, name,
                 dose,
                 form,
-                Double.parseDouble(amount),
+                Double.parseDouble(amount.replaceAll(",",".")),
                 purpose,
                 place);
         return didItWork;
