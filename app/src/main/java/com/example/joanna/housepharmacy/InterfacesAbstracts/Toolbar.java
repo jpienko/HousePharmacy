@@ -89,20 +89,6 @@ public abstract class Toolbar extends AppCompatActivity {
         dialog.show();
     }
 
-    public boolean isDouble(EditText editText) {
-        String text = editText.getText().toString();
-        try {
-            Double.parseDouble(text);
-            return false;
-        } catch (NumberFormatException e) {
-            if (text.matches("")) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-    }
-
     public int getPlaceID(DatabasePlaceAdapter dAPlace, String name) {
         dAPlace.openDB();
         int place = dAPlace.getPlaceId(name);
@@ -138,9 +124,9 @@ public abstract class Toolbar extends AppCompatActivity {
         adapterForm = new ArrayAdapter<String>(this, R.layout.spinner_item, formList);
         dAForm.openDB();
         formList.add("-");
-        Cursor c = dAForm.getAllForms();
-        while (c.moveToNext()) {
-            String name = c.getString(1);
+        Cursor cursor = dAForm.getAllForms();
+        while (cursor.moveToNext()) {
+            String name = cursor.getString(1);
             formList.add(name);
         }
         dAForm.closeDB();
@@ -154,9 +140,9 @@ public abstract class Toolbar extends AppCompatActivity {
         adapterPlace = new ArrayAdapter<String>(this, R.layout.spinner_item, placeList);
         placeList.add("-");
         dAPlace.openDB();
-        Cursor c = dAPlace.getAllPlaces();
-        while (c.moveToNext()) {
-            String name = c.getString(1);
+        Cursor cursor = dAPlace.getAllPlaces();
+        while (cursor.moveToNext()) {
+            String name = cursor.getString(1);
             placeList.add(name);
         }
         dAPlace.closeDB();
@@ -209,11 +195,11 @@ public abstract class Toolbar extends AppCompatActivity {
     }
     public static boolean isNumeric(String str)
     {
-        for (char c : str.toCharArray())
+        for (char character : str.toCharArray())
         {
-            if (!Character.isDigit(c))
+            if (!Character.isDigit(character))
             {
-                if (!(String.valueOf(c).matches("."))|| !(String.valueOf(c).matches(","))) return false;
+                if (!(String.valueOf(character).matches("."))|| !(String.valueOf(character).matches(","))) return false;
             }}
         return true;
     }
