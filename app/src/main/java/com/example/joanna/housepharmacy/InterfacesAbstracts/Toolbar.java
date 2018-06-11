@@ -159,25 +159,25 @@ public abstract class Toolbar extends AppCompatActivity {
     }
 
     public void addMedToList(Cursor cursor, DatabaseMedAdapter dbMed, DatabaseFormAdapter dAForm, DatabasePlaceAdapter dAPlace, ArrayList<Med> meds) {
-       if(cursor!=null) {
-           while (cursor.moveToNext()) {
-               int id = cursor.getInt(0);
-               String name = cursor.getString(1);
-               String dose = cursor.getString(2);
-               int formInt = cursor.getInt(3);
-               double amount = cursor.getDouble(4);
-               String purpose = cursor.getString(5);
-               int placeInt = cursor.getInt(6);
-               dbMed.closeDB();
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                int id = cursor.getInt(0);
+                String name = cursor.getString(1);
+                String dose = cursor.getString(2);
+                int formInt = cursor.getInt(3);
+                double amount = cursor.getDouble(4);
+                String purpose = cursor.getString(5);
+                int placeInt = cursor.getInt(6);
+                dbMed.closeDB();
 
-               String form = getFormName(dAForm, formInt);
+                String form = getFormName(dAForm, formInt);
 
-               String place = getPlaceName(dAPlace, placeInt);
+                String place = getPlaceName(dAPlace, placeInt);
 
-               Med m = new Med(id, name, dose, form, amount, purpose, place);
-               meds.add(m);
-           }
-       }
+                Med m = new Med(id, name, dose, form, amount, purpose, place);
+                meds.add(m);
+            }
+        }
     }
 
     public void addToPlaceList(ArrayList<Place> places) {
@@ -193,15 +193,18 @@ public abstract class Toolbar extends AppCompatActivity {
         }
         db.closeDB();
     }
-    public static boolean isNumeric(String str)
-    {
-        for (char character : str.toCharArray())
-        {
-            if (!Character.isDigit(character))
-            {
-                if (!(String.valueOf(character).matches("."))|| !(String.valueOf(character).matches(","))) return false;
-            }}
-        return true;
+
+    public static boolean isNumeric(String str) {
+        for (char character : str.toCharArray()) {
+            if (!Character.isDigit(character)) {
+                if (!(String.valueOf(character).matches("."))) {
+                    if (!(String.valueOf(character).matches(","))) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
 }

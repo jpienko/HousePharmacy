@@ -45,7 +45,7 @@ public class PlaceUpdateActivity extends Toolbar {
     }
 
     @OnClick(R.id.bUpdatePlace)
-    void Click() {
+    void update() {
         dbPlace = new DatabasePlaceAdapter(this);
         dbPlace.openDB();
         String name = getNewRowData(tvPlaceNameUpdate, etPlaceNameUpdate);

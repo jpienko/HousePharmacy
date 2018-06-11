@@ -28,7 +28,7 @@
     <string name="current_string">Obecnie</string>
     <string name="yes_string">TAK</string>
     <string name="no_string">NIE</string>
-    <string name="place_dialog_string">Czy chcesz usunąć miejsce wraz z zawartością? .\n Jeżeli wybierzesz \"NIE\", zawartość zostanie przeniesiona do \"none\"</string>
+    <string name="place_dialog_string">Czy chcesz usunąć miejsce wraz z zawartością? .\n Jeżeli wybierzesz \"NIE\", zawartość zostanie przeniesiona do \"brak\"</string>
     <string name="delete_dialog_string">Czy na pewno chcesz trwale usunąć pozycję?</string>
     <string name="help">"Witaj w pomocy! Naciśnij na nurtujące cię pytanie i znajdź odpowiedź"</string>
     <string name="help_title">Pomoc</string>
@@ -61,7 +61,7 @@
     <string name="add_place_succsess">Pomyślnie dodano miejsce</string>
     <string name="add_place_fail">Nie udało się dodać miejsca</string>
     <string name="update_med_title">Zaktualizuj lek</string>
-    <string name="amount_int_remind">Musisz ilość w postaci liczby (nie musi być całkowita)</string>
+    <string name="amount_int_remind">Musisz podać ilość w postaci liczby (nie musi być całkowita)</string>
     <string name="update_med_succsess">Pomyślnie zaktualizowano lek</string>
     <string name="update_med_fail">Błąd podczas aktualizacji</string>
     <string name="med_list_title">Lista leków</string>

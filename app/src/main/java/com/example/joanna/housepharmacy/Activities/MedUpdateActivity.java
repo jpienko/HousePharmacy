@@ -73,15 +73,25 @@ public class MedUpdateActivity extends Toolbar {
 
     @OnClick(R.id.bUpdateMed)
     void updateMed() {
-        if (!(isNumeric(amountUpdate.getText().toString()))) {
-            Toast.makeText(MedUpdateActivity.this, R.string.amount_int_remind, Toast.LENGTH_LONG).show();
+        if (!amountUpdate.getText().toString().matches("")) {
+            if ((isNumeric(amountUpdate.getText().toString()))) {
+                Toast.makeText(MedUpdateActivity.this, R.string.amount_int_remind, Toast.LENGTH_LONG).show();
+            }
+            else {
+                updateMedOperations();
+            }
         } else {
-            getDatabaseAdapter();
-            updateInDatabase();
-            setAllTextView();
-            spinnerForm(dAForm, formList, adapterForm, spFormUpdate);
-            spinnerPlace(dAPlace, placeList, adapterPlace, spPlaceUpdate);
-        }
+            updateMedOperations();
+    }
+
+}
+
+    private void updateMedOperations() {
+        getDatabaseAdapter();
+        updateInDatabase();
+        setAllTextView();
+        spinnerForm(dAForm, formList, adapterForm, spFormUpdate);
+        spinnerPlace(dAPlace, placeList, adapterPlace, spPlaceUpdate);
     }
 
     private void getDatabaseAdapter() {
@@ -166,7 +176,7 @@ public class MedUpdateActivity extends Toolbar {
         didItWork = dAMed.updateRow(id, name,
                 dose,
                 form,
-                Double.parseDouble(amount.replaceAll(",",".")),
+                Double.parseDouble(amount.replaceAll(",", ".")),
                 purpose,
                 place);
         return didItWork;

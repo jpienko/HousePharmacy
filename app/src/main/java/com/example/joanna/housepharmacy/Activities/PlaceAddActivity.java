@@ -36,7 +36,7 @@ public class PlaceAddActivity extends Toolbar {
     }
 
     @OnClick(R.id.bAddPlace)
-    void Click() {
+    void ClickAddPlace() {
         if (name.getText().toString().matches("")) {
             Toast.makeText(PlaceAddActivity.this, R.string.add_name_remind, Toast.LENGTH_LONG).show();
         } else if (checkIfAlreadyAdded()){

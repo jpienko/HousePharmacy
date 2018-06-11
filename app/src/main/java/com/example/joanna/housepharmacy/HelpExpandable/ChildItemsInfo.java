@@ -12,8 +12,8 @@ public class ChildItemsInfo {
         return answer;
     }
 
-    public void setAnswer(String songName) {
-        this.answer = songName;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
 }

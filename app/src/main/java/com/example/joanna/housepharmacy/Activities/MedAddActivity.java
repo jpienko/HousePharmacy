@@ -58,10 +58,10 @@ public class MedAddActivity extends Toolbar {
     }
 
     @OnClick(R.id.bAddMed)
-    void Click() {
+    void AddClick() {
         if (name.getText().toString().matches("")) {
             Toast.makeText(MedAddActivity.this, R.string.fill_name_remind, Toast.LENGTH_LONG).show();
-        } else if (isNumeric(amount.toString())) {
+        } else if ((isNumeric(amount.getText().toString()))) {
             Toast.makeText(MedAddActivity.this, R.string.amount_int_remind, Toast.LENGTH_LONG).show();
         } else {
             addMed();
